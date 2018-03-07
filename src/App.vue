@@ -1,8 +1,20 @@
-<template>
-  <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <router-view/>
-  </div>
+<template lang="pug">
+  #app.has-navbar-fixed-top
+    nav.navbar.is-dark.is-fixed-top(role='navigation' aria-label="dropdown navigation")
+      .navbar-menu
+        .navbar-end
+          router-link.navbar-item(to='/') Home
+          router-link.navbar-item(to='/#about') About
+          router-link.navbar-item(to='/#contact') Contact
+          .navbar-item.has-dropdown.is-hoverable
+            router-link.navbar-link(to='/dev') Ongoing Projects
+            .navbar-dropdown.is-right
+              router-link.navbar-item(to='/hrm') HRM
+      .navbar-burger
+        span Home
+        span HRM
+        span In Progress
+    router-view
 </template>
 
 <script>
@@ -18,6 +30,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
