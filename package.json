@@ -11,11 +11,10 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js",
+    "build": "node --trace-warnings build/build.js",
     "deploy": "dploy"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "buefy": "^0.6.3",
     "mdi": "^2.1.99",
     "vue": "^2.5.2",
@@ -40,7 +39,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.1",
     "cross-spawn": "^5.0.1",
-    "css-loader": "^0.28.0",
+    "css-loader": "^0.28.10",
     "dploy": "^1.2.0",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^11.3.0",
@@ -81,6 +80,7 @@
     "shelljs": "^0.7.6",
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
+    "style-loader": "^0.20.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "uglifyjs-webpack-plugin": "^1.1.1",
@@ -97,5 +97,9 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
