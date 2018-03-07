@@ -1,5 +1,10 @@
 <template lang="pug">
-  h1 Development
+div
+  h1.title Development
+  h1.title Development
+  h1.title Development
+  h1.title Development
+  h1.title Development
 </template>
 
 <script>

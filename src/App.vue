@@ -11,9 +11,13 @@
             .navbar-dropdown.is-right
               router-link.navbar-item(to='/hrm') HRM
       .navbar-burger
-        span Home
-        span HRM
-        span In Progress
+        router-link.navbar-item(to='/') Home
+        router-link.navbar-item(to='/#about') About
+        router-link.navbar-item(to='/#contact') Contact
+        .navbar-item.has-dropdown.is-hoverable
+          router-link.navbar-link(to='/dev') Ongoing Projects
+          .navbar-dropdown.is-right
+            router-link.navbar-item(to='/hrm') HRM
     router-view
 </template>
 
