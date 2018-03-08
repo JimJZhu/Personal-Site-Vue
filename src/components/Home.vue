@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ContentBlock from '@/components/ContentBlock';
+import ContentBlock from '@/components/home_components/ContentBlock';
 
 export default {
   name: 'Home',

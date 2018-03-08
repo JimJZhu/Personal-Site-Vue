@@ -1,14 +1,16 @@
 <template lang="pug">
   section.section
     br
-    h1.title.is-1 HRM
+    h1.title.is-1 HRM Chapter Quiz
     .columns
       .column.is-one-quarter
         .tile-ancestor
-          hrm-panel.tile.is-vertical(:chapters="chapters" v-on:clicked="selectChapter($event)")
+          hrm-panel.tile.is-vertical(:chapters="chapters"
+            v-on:clicked="selectChapter($event)"
+            v-on:searched="searched($event)")
       .column
         .tile-ancestor
-          hrm-content.tile(:questions="currentQuestions")
+          hrm-content.tile.is-vertical(:questions="currentQuestions" :search="search")
 
 </template>
 
@@ -24,24 +26,79 @@ export default {
       allQuestions: [],
       currentQuestions: [],
       status: '',
+      search: '',
+      defaultQuestion: [
+        {
+          question:
+            '  Click on a chapter on the left begin.' +
+            ' Use the search feature to search for keywords in each chapter.',
+          answer: {
+            correct: 'none',
+            a: '',
+            b: '',
+            c: '',
+            d: '',
+            e: '',
+          },
+        },
+        {
+          question: '  You can test the features on these dummy questions.',
+          answer: {
+            correct: 'none',
+            a: '',
+            b: '',
+            c: '',
+            d: '',
+            e: '',
+          },
+        },
+        {
+          question: '  What is the longest river in Africa?',
+          answer: {
+            correct: 'C',
+            a: '  a) Kilimanjaro',
+            b: 'b) Mawenzi',
+            c: 'c) Nile',
+            d: 'd) Wakanda',
+            e: 'e) Egyptian',
+          },
+        },
+        {
+          question: '   Who killed Tupac?',
+          answer: {
+            correct: 'F',
+            a: '  a) Biggie',
+            b: 'b) Illuminati',
+            c: 'c) FBI',
+            d: 'd) Steve Harvey',
+            e: 'e) Bush',
+          },
+        },
+      ],
     };
   },
   created() {
     this.processHRM();
   },
   methods: {
+    searched(s) {
+      this.search = s;
+    },
     selectChapter(chapter) {
-      this.currentQuestions = this.allQuestions[chapter - 1];
+      if (chapter === 0) {
+        this.currentQuestions = this.defaultQuestion;
+      } else {
+        this.currentQuestions = this.allQuestions[chapter - 1];
+      }
     },
     processHRM() {
       this.status = 'Loading...';
       for (let i = 1; i <= 17; i += 1) {
         this.allQuestions.push(this.fetchChapter(i));
         this.chapters.push(i);
-        // console.log(this.chapters);
       }
       this.status = 'Done';
-      this.currentQuestions = this.allQuestions[0];
+      this.currentQuestions = this.defaultQuestion;
     },
     fetchChapter(chapter) {
       // eslint-disable-next-line
