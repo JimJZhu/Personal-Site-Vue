@@ -1,10 +1,9 @@
 <template lang="pug">
-div
-  h1.title Development
-  h1.title Development
-  h1.title Development
-  h1.title Development
-  h1.title Development
+  section.section
+    .tile.is-parent
+      .tile.is-child.is-4.box
+        router-link(to='/hrm').title HRM Quiz
+
 </template>
 
 <script>

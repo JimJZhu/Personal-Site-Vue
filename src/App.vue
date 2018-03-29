@@ -1,29 +1,17 @@
 <template lang="pug">
   #app.has-navbar-fixed-top
-    nav.navbar.is-dark.is-fixed-top(role='navigation' aria-label="dropdown navigation")
-      .navbar-menu
-        .navbar-end
-          router-link.navbar-item(to='/') Home
-          router-link.navbar-item(to='/#about') About
-          router-link.navbar-item(to='/#contact') Contact
-          .navbar-item.has-dropdown.is-hoverable
-            router-link.navbar-link(to='/dev') Ongoing Projects
-            .navbar-dropdown.is-right
-              router-link.navbar-item(to='/hrm') HRM
-      .navbar-burger
-        router-link.navbar-item(to='/') Home
-        router-link.navbar-item(to='/#about') About
-        router-link.navbar-item(to='/#contact') Contact
-        .navbar-item.has-dropdown.is-hoverable
-          router-link.navbar-link(to='/dev') Ongoing Projects
-          .navbar-dropdown.is-right
-            router-link.navbar-item(to='/hrm') HRM
+    Nav
     router-view
 </template>
 
 <script>
+import Nav from '@/components/global_components/Nav';
+
 export default {
   name: 'App',
+  components: {
+    Nav,
+  },
 };
 </script>
 
