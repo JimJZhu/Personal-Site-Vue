@@ -1,8 +1,23 @@
 <template lang="pug">
   ul.section.tile.is-parent.is-vertical
-    .notification.float.is-info
-      p.title {{correctCounter}}/{{filteredQuestions.length}}
-      progress.progress.is-danger.is-small(v-bind:value="correctCounter" v-bind:max="filteredQuestions.length")
+    .notification.float-right.is-info(v-show="showTimer")
+      button.delete(@click="showTimer=false")
+      .columns
+        .column
+          p.digit {{minutes}}
+          p.text Minutes
+        .column
+          p.digit {{seconds}}
+          p.text Seconds
+        .column
+          p.digit {{millis}}
+          p.text Milli
+        .column.is-two-fifth
+          p.text {{correctCounter}}/{{filteredQuestions.length}}
+          p.text Correct
+      progress.progress.is-primary.is-small(v-bind:value="correctCounter" v-bind:max="filteredQuestions.length")
+      button.button.is-warning(@click="resetTimer") Reset Timer
+    button.button.float-right.is-info(v-show="!showTimer" @click="showTimer = true") {{correctCounter}}/{{filteredQuestions.length}} Show Timer
     li.control.tile.is-parent.box.is-vertical(v-for="(question, key) in filteredQuestions")
       h1.subtitle.tile
         | {{question.question.substr(0, 2) + ' ' +
@@ -38,6 +53,9 @@ export default {
     return {
       responses: [],
       correctCounter: 0,
+      startTime: Math.trunc(new Date().getTime()),
+      now: Math.trunc(new Date().getTime()),
+      showTimer: true,
     };
   },
   watch: {
@@ -46,7 +64,11 @@ export default {
       this.correctCounter = 0;
     },
   },
-  created() {},
+  created() {
+    window.setInterval(() => {
+      this.now = Math.trunc(new Date().getTime());
+    }, 5);
+  },
   methods: {
     isCorrect(index, response, correct) {
       if (index === response) {
@@ -70,6 +92,9 @@ export default {
         this.correctCounter -= 1;
       }
     },
+    resetTimer() {
+      this.startTime = Math.trunc(new Date().getTime());
+    },
   },
   computed: {
     filteredQuestions() {
@@ -83,6 +108,21 @@ export default {
           question.answer.e.toLowerCase().includes(this.search),
       );
     },
+    seconds() {
+      return Math.trunc((this.now - this.startTime) / 1000) % 60;
+    },
+
+    minutes() {
+      return Math.trunc((this.now - this.startTime) / 60000) % 60;
+    },
+
+    hours() {
+      return Math.trunc((this.now - this.startTime) / 3600000) % 24;
+    },
+
+    millis() {
+      return Math.trunc(this.now - this.startTime) % 1000;
+    },
   },
 };
 </script>
@@ -95,11 +135,16 @@ h1, h2
 ul
   list-style-type none
   padding 0
-  .float
+  .float-right
     position fixed
     z-index 1000
-    bottom 0px
+    bottom 1rem
     right 2rem
+  .float-left
+    position fixed
+    z-index 1000
+    bottom 1rem
+    left 2rem
   li
     display inline-block
     margin 0 10px
