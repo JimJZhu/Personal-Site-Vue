@@ -1,28 +1,31 @@
 <template lang="pug">
   ul.section.tile.is-parent.is-vertical
+    .notification.float.is-info
+      p.title {{correctCounter}}/{{filteredQuestions.length}}
+      progress.progress.is-danger.is-small(v-bind:value="correctCounter" v-bind:max="filteredQuestions.length")
     li.control.tile.is-parent.box.is-vertical(v-for="(question, key) in filteredQuestions")
       h1.subtitle.tile
         | {{question.question.substr(0, 2) + ' ' +
         | question.question.substr(2, question.question.length)}}
       label.radio.tile(v-show="question.answer.correct !== 'none'"
       v-bind:class="isCorrect(responses[key], 'A', question.answer.correct)")
-        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="A")]
+        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="A" @click="increment(responses[key], 'A', question.answer.correct)")]
         | {{question.answer.a.substr(2, question.answer.a.length)}}
       label.radio.tile(v-show="question.answer.correct !== 'none'"
       v-bind:class="isCorrect(responses[key], 'B', question.answer.correct)")
-        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="B")]
+        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="B" @click="increment(responses[key], 'B', question.answer.correct)")]
         | {{question.answer.b}}
       label.radio.tile(v-show="question.answer.correct !== 'none'"
       v-bind:class="isCorrect(responses[key], 'C', question.answer.correct)")
-        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="C")]
+        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="C" @click="increment(responses[key], 'C', question.answer.correct)")]
         | {{question.answer.c}}
       label.radio.tile(v-show="question.answer.correct !== 'none'"
       v-bind:class="isCorrect(responses[key], 'D', question.answer.correct)")
-        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="D")]
+        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="D" @click="increment(responses[key], 'D', question.answer.correct)")]
         | {{question.answer.d}}
       label.radio.tile(v-show="question.answer.correct !== 'none'"
       v-bind:class="isCorrect(responses[key], 'E', question.answer.correct)")
-        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="E")]
+        | #[input(type="radio" :name="'answer' + key" v-model="responses[key]" value="E" @click="increment(responses[key], 'E', question.answer.correct)")]
         | {{question.answer.e}}
 
 </template>
@@ -34,11 +37,13 @@ export default {
   data() {
     return {
       responses: [],
+      correctCounter: 0,
     };
   },
   watch: {
     questions() {
       this.responses = [];
+      this.correctCounter = 0;
     },
   },
   created() {},
@@ -51,6 +56,19 @@ export default {
         return 'incorrect';
       }
       return '';
+    },
+    increment(index, response, correct) {
+      if (!index) {
+        if (response === correct) {
+          this.correctCounter += 1;
+        }
+      } else if (response === correct) {
+        if (index !== response) {
+          this.correctCounter += 1;
+        }
+      } else if (index === correct) {
+        this.correctCounter -= 1;
+      }
     },
   },
   computed: {
@@ -77,6 +95,11 @@ h1, h2
 ul
   list-style-type none
   padding 0
+  .float
+    position fixed
+    z-index 1000
+    bottom 0px
+    right 2rem
   li
     display inline-block
     margin 0 10px
@@ -89,8 +112,10 @@ a
 .correct
   color #21885a
   font-weight 700
+  background-color #e0ffdb
 .incorrect
   color red
   font-weight 700
+  background-color #ffdbdb
 
 </style>
