@@ -36,6 +36,11 @@ export default {
       responses: [],
     };
   },
+  watch: {
+    questions() {
+      this.responses = [];
+    },
+  },
   created() {},
   methods: {
     isCorrect(index, response, correct) {

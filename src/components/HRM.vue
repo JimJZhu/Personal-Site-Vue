@@ -10,7 +10,8 @@
             v-on:searched="searched($event)")
       .column
         .tile-ancestor
-          hrm-content.tile.is-vertical(:questions="currentQuestions" :search="search")
+          hrm-content.tile.is-vertical(:questions="currentQuestions"
+            :search="search")
 
 </template>
 
