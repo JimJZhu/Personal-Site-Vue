@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     send() {
-      console.log(`${baseUrl}query`);
       axios({
         method: 'POST',
         url: `${baseUrl}query`,
@@ -73,15 +72,9 @@ export default {
       let location = val.result.parameters.location;
       location = location.split(',');
       const URL = `https://www.alphavantage.co/query?${urlExt}&apikey=${investApiKey}`;
-      console.log(val);
       axios.get(URL).then((response) => {
-        console.log(response.data);
         let data = response.data;
-        console.log(location);
         for (let i = 0; i < location.length; i += 1) {
-          console.log(`${i}`);
-
-          console.log(data);
           if (location[i][0] === '$') {
             if (val.result.parameters[location[i].substring(1)]) {
               if (!response[val.result.parameters[location[i].substring(1)]]) {
