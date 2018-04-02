@@ -2,12 +2,14 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Buefy from 'buefy';
+import VueFire from 'vuefire';
 import 'mdi/css/materialdesignicons.min.css';
 import 'buefy/lib/buefy.css';
 import App from './App';
 import router from './router';
 
 Vue.use(Buefy);
+Vue.use(VueFire);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

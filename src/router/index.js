@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from '@/components/Home';
 import Development from '@/components/Development';
 import HRM from '@/components/HRM';
+import Investorbate from '@/components/Investorbate';
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/hrm',
       name: 'HRM',
       component: HRM,
+    },
+    {
+      path: '/investorbate',
+      name: 'Investorbate',
+      component: Investorbate,
     },
   ],
 });
