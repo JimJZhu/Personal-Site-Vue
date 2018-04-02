@@ -8,8 +8,6 @@
     .navbar-menu(v-bind:class="{'is-active' : visible}" v-on:click="toggleBurger")
       .navbar-end
         router-link.navbar-item(to='/') Home
-        router-link.navbar-item(to='/#about') About
-        router-link.navbar-item(to='/#contact') Contact
         router-link.navbar-item(to='/dev') Live Projects
 </template>
 
