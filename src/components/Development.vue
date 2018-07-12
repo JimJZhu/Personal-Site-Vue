@@ -5,7 +5,7 @@
         router-link(to='/hrm').title HRM Quiz
     .tile.is-parent
       .tile.is-child.is-4.box
-        router-link(to='/investorbate').title Investorbate
+        router-link(to='/investorbate').title Investorbate (In Progress)
     //- .tile.is-parent(v-for="book in books")
     //-   .tile.is-child.box {{book.author}}
     //- .panel.panel-default
@@ -81,5 +81,7 @@ li {
 }
 a {
   color: #42b983;
+}
+.title {
 }
 </style>
