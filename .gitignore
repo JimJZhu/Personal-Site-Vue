@@ -16,3 +16,4 @@ selenium-debug.log
 *.sln
 dploy.yaml
 1.yaml
+*.env
