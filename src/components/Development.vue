@@ -27,41 +27,12 @@
 </template>
 
 <script>
-import Firebase from 'firebase';
-
-const config = {
-  apiKey: '***REMOVED***',
-  authDomain: '***REMOVED***',
-  databaseURL: '***REMOVED***',
-  storageBucket: '***REMOVED***',
-  messagingSenderId: '***REMOVED***',
-};
-
-const app = Firebase.initializeApp(config);
-const db = app.database();
-const booksRef = db.ref('books');
 export default {
   name: 'Development',
-  firebase: {
-    books: booksRef,
-  },
   data() {
-    return {
-      newBook: {
-        title: '',
-        author: '',
-        url: 'http://',
-      },
-    };
+    return {};
   },
-  methods: {
-    addBook() {
-      booksRef.push(this.newBook);
-      this.newBook.title = '';
-      this.newBook.author = '';
-      this.newBook.url = 'http://';
-    },
-  },
+  methods: {},
 };
 </script>
 

@@ -4,6 +4,7 @@ import Home from '@/components/Home';
 import Development from '@/components/Development';
 import HRM from '@/components/HRM';
 import Investorbate from '@/components/Investorbate';
+import MPH from '@/components/MPH';
 
 Vue.use(Router);
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/investorbate',
       name: 'Investorbate',
       component: Investorbate,
+    },
+    {
+      path: '/mph',
+      name: 'MPH',
+      component: MPH,
     },
   ],
 });
