@@ -122,10 +122,7 @@ export default {
         if (token.includes(`${questionNum})`)) {
           if (state !== INITIAL_STATE) {
             // Cleaning the answers
-            question.answer.e = question.answer.e.substr(
-              0,
-              question.answer.e.length - 8,
-            );
+            question.answer.e = question.answer.e.substr(0, question.answer.e.length - 8);
             question.answer.correct = question.answer.correct.substr(0, 1);
             if (question.answer.a) {
               // Excludes t/f
@@ -200,20 +197,18 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style scoped lang='stylus'>
+h1, h2
+  font-weight normal
+
+ul
+  list-style-type none
+  padding 0
+
+li
+  display inline-block
+  margin 0 10px
+
+a
+  color #42b983
 </style>

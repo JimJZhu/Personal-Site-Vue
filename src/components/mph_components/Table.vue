@@ -17,28 +17,19 @@
               label(for='bookUrl') Url:
               input#bookUrl.form-control(type='text', v-model='newBook.url')
             input.btn.btn-primary(type='submit', value='Add Book')
+      button.button(v-on:click='logout') Logout
 </template>
 
 <script>
 import Firebase from 'firebase';
 
-const config = {
-  apiKey: process.env.FIREBASE_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.FIREBASE_DATABASE_URL,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-};
-
-const app = Firebase.initializeApp(config);
-const db = app.database();
-const booksRef = db.ref('products');
-console.log(process.env);
+// const db = Firebase.database();
+// const booksRef = db.ref('site');
 export default {
-  name: 'Development',
-  firebase: {
-    books: booksRef,
-  },
+  name: 'Table',
+  // firebase: {
+  // books: booksRef,
+  // },
   data() {
     return {
       newBook: {
@@ -50,32 +41,36 @@ export default {
   },
   methods: {
     addBook() {
-      booksRef.push(this.newBook);
-      this.newBook.title = '';
-      this.newBook.author = '';
-      this.newBook.url = 'http://';
+      // booksRef.push(this.newBook);
+      // this.newBook.title = '';
+      // this.newBook.author = '';
+      // this.newBook.url = 'http://';
+    },
+    logout() {
+      Firebase.auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace('/home');
+        });
     },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.title {
-}
+<style scoped lang='stylus'>
+h1, h2
+  font-weight normal
+
+ul
+  list-style-type none
+  padding 0
+
+li
+  display inline-block
+  margin 0 10px
+
+a
+  color #42b983
 </style>
+
