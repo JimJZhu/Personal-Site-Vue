@@ -9,7 +9,9 @@
         .control
           input.input(type='password', placeholder='Password', v-model='password')
       button.button(v-on:click='login') Connection
-      p No account? Make one.
+      br
+      p.subtitle {{status}}
+
 </template>
 
 <script>
@@ -21,6 +23,7 @@ export default {
     return {
       email: '',
       password: '',
+      status: '',
     };
   },
   methods: {
@@ -31,8 +34,9 @@ export default {
           () => {
             this.$router.replace('/table');
           },
-          (err) => {
-            alert(`nope ${err.message}`);
+          () => {
+            // alert(`nope ${err.message}`);
+            this.status = 'Bad...';
           },
         );
     },

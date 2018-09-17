@@ -12,7 +12,6 @@ import router from './router';
 Vue.use(Buefy);
 Vue.use(VueFire);
 Vue.config.productionTip = false;
-let app;
 const config = {
   apiKey: process.env.FIREBASE_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -21,6 +20,7 @@ const config = {
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
 };
 
+let app;
 Firebase.initializeApp(config);
 Firebase.auth().onAuthStateChanged(() => {
   if (!app) {

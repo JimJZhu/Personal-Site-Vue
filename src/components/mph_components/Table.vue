@@ -21,40 +21,41 @@
 </template>
 
 <script>
-import Firebase from 'firebase';
+// import Firebase from 'firebase';
 
+// // const app = Firebase.initializeApp(config);
 // const db = Firebase.database();
 // const booksRef = db.ref('site');
-export default {
-  name: 'Table',
-  // firebase: {
-  // books: booksRef,
-  // },
-  data() {
-    return {
-      newBook: {
-        title: '',
-        author: '',
-        url: 'http://',
-      },
-    };
-  },
-  methods: {
-    addBook() {
-      // booksRef.push(this.newBook);
-      // this.newBook.title = '';
-      // this.newBook.author = '';
-      // this.newBook.url = 'http://';
-    },
-    logout() {
-      Firebase.auth()
-        .signOut()
-        .then(() => {
-          this.$router.replace('/home');
-        });
-    },
-  },
-};
+// export default {
+//   name: 'Table',
+//   firebase: {
+//     books: booksRef,
+//   },
+//   data() {
+//     return {
+//       newBook: {
+//         title: '',
+//         author: '',
+//         url: 'http://',
+//       },
+//     };
+//   },
+//   methods: {
+//     addBook() {
+//       booksRef.push(this.newBook);
+//       this.newBook.title = '';
+//       this.newBook.author = '';
+//       this.newBook.url = 'http://';
+//     },
+//     logout() {
+//       Firebase.auth()
+//         .signOut()
+//         .then(() => {
+//           this.$router.replace('/home');
+//         });
+//     },
+//   },
+// };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

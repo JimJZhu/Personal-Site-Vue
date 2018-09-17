@@ -6,6 +6,9 @@
     .tile.is-parent
       .tile.is-child.is-4.box
         router-link(to='/investorbate').title Investorbate (In Progress)
+    .tile.is-parent
+      .tule.is-child.is-4.box
+        router-link(to='/login').title MPH Portal Login
 
 </template>
 
