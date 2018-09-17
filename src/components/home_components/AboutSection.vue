@@ -1,12 +1,14 @@
 <template lang="pug">
   div
     section.section
-      .container.is-fullhd
-        h1.title About Me
-        p
-          | I am a 3rd year Computer Engineering student at the University of Waterloo.
-
-        p {{daysUntilGraduation}} days until Graduation.
+      h1 About Me
+      .columns
+        img.column(src="@/assets/bass.jpg")
+        .column
+          p
+            | I am a 3rd year Computer Engineering student at the University of Waterloo.
+            | I love playing fishing, cycling, and playing rhythm games.
+          p {{daysUntilGraduation}} days until Graduation.
 </template>
 
 <script>
@@ -29,23 +31,32 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
+.section
+  display flex
+  flex-direction column
+  justify-content flex-start
+
 h1
-    list-style none
-    border-bottom 0
-    float left
-    font-weight 700
-    font-size 5vw
-    color #fff
-    opacity 1
-    transition all 0.5s ease-in-out
+  font-weight 700
+  font-size 5vw
+  color #fff
+  opacity 1
+  transition all 0.5s ease-in-out
+  float left
+
+img
+  height 45vw
+  width 30vw
+  border-radius 50%
+  // margin auto
 
 p
-    list-style none
-    border-bottom 0
-    float left
-    font-weight 700
-    font-size 3vw
-    color #fff
-    opacity 1
-    transition all 0.5s ease-in-out
+  list-style none
+  border-bottom 0
+  float left
+  font-weight 700
+  font-size 3vw
+  color #fff
+  opacity 1
+  transition all 0.5s ease-in-out
 </style>
