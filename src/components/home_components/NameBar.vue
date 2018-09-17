@@ -62,15 +62,30 @@
 <script>
 export default {
   name: 'NameBar',
+  props: ['scrolled'],
   data() {
     return {
-      initialScroll: false,
       subtitleScrollHeight: 90 + window.innerWidth / 10,
     };
   },
   methods: {
     handelResize() {
-      this.subtitleScrollHeight = 90 + window.innerWidth / 10;
+      console.log(this.scrolled);
+      if (this.scrolled) {
+        this.subtitleScrollHeight = 90 + window.innerWidth / 20;
+      } else {
+        this.subtitleScrollHeight = 90 + window.innerWidth / 10;
+      }
+    },
+  },
+  watch: {
+    scrolled(newVal, oldVal) {
+      console.log(oldVal + newVal);
+      if (this.scrolled) {
+        this.subtitleScrollHeight = 90 + window.innerWidth / 20;
+      } else {
+        this.subtitleScrollHeight = 90 + window.innerWidth / 10;
+      }
     },
   },
   created() {
@@ -136,6 +151,12 @@ li.spaced, li.shrinkSpaced, li.disappearSpaced
   max-width 2em
 
 // Title and Subtitle After scrolling
+.shrunk .title li
+  font-size 5vw
+
+.shrunk .subtitle li
+  font-size 2vw
+
 .shrunk li.disappear
   opacity 0
   max-width 0

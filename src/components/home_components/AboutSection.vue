@@ -3,7 +3,8 @@
     section.section
       h1 About Me
       .columns
-        img.column(src="@/assets/bass.jpg")
+        .column
+          img(src="@/assets/bass.jpg")
         .column
           p
             | I am a 3rd year Computer Engineering student at the University of Waterloo.
@@ -38,14 +39,14 @@ export default {
 
 h1
   font-weight 700
-  font-size 5vw
+  font-size 3vw
   color #fff
   opacity 1
   transition all 0.5s ease-in-out
   float left
 
 img
-  height 45vw
+  height 30vw
   width 30vw
   border-radius 50%
   // margin auto
@@ -55,7 +56,7 @@ p
   border-bottom 0
   float left
   font-weight 700
-  font-size 3vw
+  font-size 2vw
   color #fff
   opacity 1
   transition all 0.5s ease-in-out

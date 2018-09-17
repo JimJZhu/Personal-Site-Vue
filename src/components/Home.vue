@@ -3,7 +3,7 @@
     section.hero
       .hero-body
         .container
-          name-bar(v-bind:class = "{ shrunk: initialScroll }", v-bind:style = "{ top: titleScrollHeight + 'vw' }")
+          name-bar(v-bind:scrolled = 'initialScroll', v-bind:class = "{ shrunk: initialScroll }", v-bind:style = "{ top: titleScrollHeight + 'vw' }")
           about-section.about(v-bind:class = "{ showAbout: showAbout }", v-bind:style = "{ top: bodyScrollHeight + 'vw' }")
           // h1 Experience
           // h1 Contact Me
@@ -26,7 +26,7 @@ export default {
       initialScroll: false,
       titleScrollHeight: 10,
       subtitleScrollHeight: 12,
-      bodyScrollHeight: 12,
+      bodyScrollHeight: 1000,
       showAbout: false,
     };
   },
@@ -37,7 +37,7 @@ export default {
       let navbarHeight = 90;
       let initialTitlePosition = 10;
       let firstThreshold = 15;
-      let initialBodyPosition = 12;
+      let initialBodyPosition = 50;
       let maxTopPosition = navbarHeight * 100 / window.innerWidth;
       console.log(window.innerWidth);
       console.log(maxTopPosition);
@@ -55,7 +55,7 @@ export default {
           ? initialBodyPosition - window.scrollY / fastScroll
           : initialBodyPosition;
 
-      this.showAbout = window.scrollY > 100;
+      this.showAbout = window.scrollY > firstThreshold;
     },
   },
   created() {
