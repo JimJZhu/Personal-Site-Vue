@@ -3,18 +3,13 @@
     section.hero
       .hero-body
         .container
-          name-bar(v-bind:scrolled = 'initialScroll', v-bind:class = "{ shrunk: initialScroll }")
+          name-bar(v-bind:scrolled = "initialScroll", v-bind:class = "{ shrunk: initialScroll }")
           // h1 Experience
           // h1 Contact Me
           button.button GO
     about-section.about(v-bind:class = "{ showAbout: showAbout }")
-    about-section.about(v-bind:class = "{ showAbout: showAbout }")
-    about-section.about(v-bind:class = "{ showAbout: showAbout }")
-    about-section.about(v-bind:class = "{ showAbout: showAbout }")
-    about-section.about(v-bind:class = "{ showAbout: showAbout }")
-    about-section.about(v-bind:class = "{ showAbout: showAbout }")
-    about-section.about(v-bind:class = "{ showAbout: showAbout }")
-
+    work-section
+    project-section
     footer.footer
       .container
         .content.has-text-centered
@@ -24,6 +19,8 @@
 <script>
 import ContentBlock from '@/components/home_components/ContentBlock';
 import AboutSection from '@/components/home_components/AboutSection';
+import WorkSection from '@/components/home_components/WorkSection';
+import ProjectSection from '@/components/home_components/ProjectSection';
 import NameBar from '@/components/home_components/NameBar';
 
 export default {
@@ -70,6 +67,8 @@ export default {
   components: {
     'content-block': ContentBlock,
     'about-section': AboutSection,
+    'work-section': WorkSection,
+    'project-section': ProjectSection,
     'name-bar': NameBar,
   },
 };
@@ -87,10 +86,6 @@ a
 .hero
   background-color #2c3e50
   height 100vh
-
-// About Before scrolling
-.about
-  transition all 0.3s ease-in-out
 
 // About After Scrolling
 .showAbout

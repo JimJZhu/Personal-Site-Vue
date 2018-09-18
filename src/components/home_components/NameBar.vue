@@ -103,7 +103,7 @@ export default {
   position fixed
   list-style none
   border-bottom 0
-  transition all 0.5s ease-in-out
+  transition all 0.3s ease-in-out
   top 60px
   z-index 999
 
@@ -113,7 +113,7 @@ export default {
   font-size 10vw
   color #fff
   opacity 1
-  transition all 0.5s ease-in-out
+  transition all 0.3s ease-in-out
   max-width 2em
 
 li.appear
@@ -128,7 +128,7 @@ li.spaced, li.shrinkSpaced, li.disappearSpaced
   position fixed
   list-style none
   border-bottom 0
-  transition all 0.5s ease-in-out
+  transition all 0.3s ease-in-out
   z-index 999
 
 .subtitle li
@@ -137,7 +137,7 @@ li.spaced, li.shrinkSpaced, li.disappearSpaced
   font-size 3vw
   color #fff
   opacity 1
-  transition all 0.5s ease-in-out
+  transition all 0.3s ease-in-out
   max-width 2em
 
 // Title and Subtitle After scrolling

@@ -1,15 +1,18 @@
 <template lang="pug">
-  div
-    section.section
-      h1 About Me
+  section.section
+    .container
+      h1.title About Me
       .columns
-        .column
-          img(src="@/assets/bass.jpg")
+        .column.is-one-third
+          figure.image.is-1by1
+            img.is-rounded(src="@/assets/bass.jpg")
         .column
           p
-            | I am a 3rd year Computer Engineering student at the University of Waterloo.
-            | I love playing fishing, cycling, and playing rhythm games.
-          p {{daysUntilGraduation}} days until Graduation.
+            | I am a 3rd year Computer Engineering student at the University of Waterloo interested in Computer Graphics and Computer Vision.
+            | Most of my work experience has been in backend development with either Java, C#, or Javascript 😏, but I'm also adept in mobile iOS development.
+            | My recent focus has been on Augmented Reality using ARKit as a result of my extensive work with it during my internship with IBM iX.
+            | Some of my other interests include fishing, cycling, and rhythm games. 
+
 </template>
 
 <script>
@@ -32,32 +35,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
-.section
-  display flex
-  flex-direction column
-  justify-content flex-start
-
 h1
-  font-weight 700
-  font-size 3vw
-  color #fff
   opacity 1
-  transition all 0.5s ease-in-out
-  float left
-
-img
-  height 30vw
-  width 30vw
-  border-radius 50%
-  // margin auto
+  transition all 0.3s ease-in-out
 
 p
   list-style none
   border-bottom 0
   float left
-  font-weight 700
-  font-size 2vw
-  color #fff
   opacity 1
-  transition all 0.5s ease-in-out
+  transition all 0.3s ease-in-out
 </style>

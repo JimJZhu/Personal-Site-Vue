@@ -1,69 +1,72 @@
 <template lang="pug">
   div
     section.section
-      .container.is-fullhd
-        h1.title About Me
-        //- img.image(src="@/assets/me.jpg")
-        p
-          | I am a 3rd year Computer Engineering student at the University of Waterloo.
-          | I like sleeping and bamboozle.
-    section.section
-      .container.is-fullhd
-        h1.title Projects
-        .tile.is-ancestor
-          .tile.is-vertical.is-4
-            a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/HackTheSix')
-              article.tile.is-child.box
-                h2.subtitle Investormate
-                p A personal investment assistant.
-            a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/OsuDataAggregator')
-              article.tile.is-child.box
-                h2.subtitle Osu Data Aggregator
-                p A python web crawler that scrapes osu player data.tile.
-          .tile.is-vertical.is-4
-            a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/Personal-Site')
-              article.tile.is-child.box
-                h2.subtitle This Website :)
-                p My personal website built on top of Pure.css using pug and stylus.
-            a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/QuickGrapherExtension')
-              article.tile.is-child.box
-                h2.subtitle Quick Grapher Extension
-                p A simple graphing tool for chrome.
-          .tile.is-vertical.is-4
-            a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/J-OSU')
-              article.tile.is-child.box
-                h2.subtitle J-OSU
-                p A Java port of my favourite rhythm game. Reads standard .osk files.
+      .container
+        h1.title Work Experience
+        single-work-block(v-for="workplace in workplaces" v-bind:data="workplace")
 </template>
 
 <script>
+import SingleWorkBlock from '@/components/home_components/SingleWorkBlock';
+
 export default {
   name: 'ContentBlock',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      workplaces: [
+        {
+          date: 'May 2018 - August 2018',
+          company: 'IBM iX',
+          position: 'Software Engineering Intern',
+          points: [
+            'Led the IBM iX team in augmented reality development, assisted multiple teams with AR solutions including a major Canadian sporting event, a government agency, and a major energy company',
+            'Created an extensible framework for ARKit on iOS using multithreading and delegates to maximize performance',
+            'Developed an augmented reality mapping and navigation system for a sporting event’s venue',
+            'Prototyped a Snapchat-style AR face-filter feature using Dlib’s facial landmark detection and ARKit',
+          ],
+        },
+        {
+          date: 'September 2017 - December 2017',
+          company: 'Hubdoc',
+          position: 'Software Engineering Intern',
+          points: [
+            'Maintained 100+ document fetching micro-services, increased success-rate from 59% to 83%',
+            'Added new features to an internal analytics dashboard using Backbone.js, C3, Express, and PostgreSQL',
+            'Created a chrome plugin to dynamically test and inject dashboard features, speeding up development time dramatically',
+          ],
+        },
+        {
+          date: 'Jan 2017 - April 2017',
+          company: 'SAP',
+          position: 'Software Engineering Intern',
+          points: [
+            'Constructed an Arduino board to analyze vibrations using a piezoelectric sensor and event-stream processing',
+            'Worked on a backend written with Java; implemented an endpoint to connect custom Java code with R modules',
+            'Developed an analytics dashboard for IoT devices following the modbus protocol using SAP PCo and SAP MII',
+            'Created a custom Java app to stress-test and analyze OData endpoints, used by teams in Toronto, Paris, and Palo Alto',
+          ],
+        },
+        {
+          date: 'May 2016 - August 2016',
+          company: 'MHS',
+          position: 'Software Developer',
+          points: [
+            'Developed the backend for a health assessment’s scoring and report generation using C# and Microsoft SQL Server',
+            'Optimized database calls by moving business logic out of SQL code and removing redundant queries, resulting in code that is cleaner, less coupled, and 500% faster',
+            'Built an internal cross-platform communications and metrics app using Ionic, Azure Authentication, and Cosmos DB',
+          ],
+        },
+      ],
     };
+  },
+  components: {
+    'single-work-block': SingleWorkBlock,
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
-h1,h2
-  font-weight: normal
-
-ul
-  list-style-type: none
-  padding: 0
-
-li
-  display: inline-block
-  margin: 0 10px
-
-a
-  color: #42b983
-
-img
-  border-radius: 50px
-
+.line
+  border-right 10px solid black
 </style>
