@@ -3,10 +3,17 @@
     section.hero
       .hero-body
         .container
-          name-bar(v-bind:scrolled = 'initialScroll', v-bind:class = "{ shrunk: initialScroll }", v-bind:style = "{ top: titleScrollHeight + 'vw' }")
-          about-section.about(v-bind:class = "{ showAbout: showAbout }", v-bind:style = "{ top: bodyScrollHeight + 'vw' }")
+          name-bar(v-bind:scrolled = 'initialScroll', v-bind:class = "{ shrunk: initialScroll }")
           // h1 Experience
           // h1 Contact Me
+          button.button GO
+    about-section.about(v-bind:class = "{ showAbout: showAbout }")
+    about-section.about(v-bind:class = "{ showAbout: showAbout }")
+    about-section.about(v-bind:class = "{ showAbout: showAbout }")
+    about-section.about(v-bind:class = "{ showAbout: showAbout }")
+    about-section.about(v-bind:class = "{ showAbout: showAbout }")
+    about-section.about(v-bind:class = "{ showAbout: showAbout }")
+    about-section.about(v-bind:class = "{ showAbout: showAbout }")
 
     footer.footer
       .container
@@ -34,28 +41,24 @@ export default {
     handleScroll() {
       let slowScroll = 20;
       let fastScroll = 10;
-      let navbarHeight = 90;
-      let initialTitlePosition = 10;
-      let firstThreshold = 15;
+      let navbarHeight = 0;
+      let initialTitlePosition = 100;
+      let firstThreshold = 200;
       let initialBodyPosition = 50;
-      let maxTopPosition = navbarHeight * 100 / window.innerWidth;
-      console.log(window.innerWidth);
-      console.log(maxTopPosition);
+      const maxTopPosition = navbarHeight / window.innerWidth / 0.01;
       this.initialScroll = window.scrollY > initialTitlePosition;
+      const diff = window.scrollY / fastScroll;
 
       this.titleScrollHeight =
-        window.scrollY > firstThreshold
-          ? initialTitlePosition - window.scrollY / fastScroll
-          : initialTitlePosition;
+        window.scrollY > firstThreshold ? initialTitlePosition - diff : initialTitlePosition;
       if (this.titleScrollHeight <= maxTopPosition) {
         this.titleScrollHeight = maxTopPosition;
       }
       this.bodyScrollHeight =
-        window.scrollY > initialTitlePosition
-          ? initialBodyPosition - window.scrollY / fastScroll
-          : initialBodyPosition;
+        window.scrollY > initialTitlePosition ? initialBodyPosition - diff : initialBodyPosition;
 
       this.showAbout = window.scrollY > firstThreshold;
+      console.log(this.titleScrollHeight);
     },
   },
   created() {
@@ -82,13 +85,11 @@ a
   color #42b983
 
 .hero
-  background-color #888888
-  height 1000vh
+  background-color #2c3e50
+  height 100vh
 
 // About Before scrolling
 .about
-  opacity 0
-  position fixed
   transition all 0.3s ease-in-out
 
 // About After Scrolling

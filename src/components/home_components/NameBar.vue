@@ -56,7 +56,6 @@
       li.disappear i
       li.disappear n
       li.disappear g
-    .titleBackground
 </template>
 
 <script>
@@ -72,7 +71,7 @@ export default {
     handelResize() {
       console.log(this.scrolled);
       if (this.scrolled) {
-        this.subtitleScrollHeight = 90 + window.innerWidth / 20;
+        this.subtitleScrollHeight = 40 + window.innerWidth / 20;
       } else {
         this.subtitleScrollHeight = 90 + window.innerWidth / 10;
       }
@@ -82,7 +81,7 @@ export default {
     scrolled(newVal, oldVal) {
       console.log(oldVal + newVal);
       if (this.scrolled) {
-        this.subtitleScrollHeight = 90 + window.innerWidth / 20;
+        this.subtitleScrollHeight = 40 + window.innerWidth / 20;
       } else {
         this.subtitleScrollHeight = 90 + window.innerWidth / 10;
       }
@@ -99,23 +98,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
-.titleBackground
-  height 30vw
-  top 0
-  background linear-gradient( to bottom, #888888 75%, rgba( 251, 251, 251, 0 ) 100% )
-  width 100vw
-  position fixed
-  transition all 0.5s ease-in-out
-  z-index 2
-
 // Title Before Scrolling
 .title
   position fixed
   list-style none
   border-bottom 0
   transition all 0.5s ease-in-out
-  z-index 3
   top 60px
+  z-index 999
 
 .title li
   float left
@@ -139,7 +129,7 @@ li.spaced, li.shrinkSpaced, li.disappearSpaced
   list-style none
   border-bottom 0
   transition all 0.5s ease-in-out
-  z-index 3
+  z-index 999
 
 .subtitle li
   float left
@@ -151,6 +141,9 @@ li.spaced, li.shrinkSpaced, li.disappearSpaced
   max-width 2em
 
 // Title and Subtitle After scrolling
+.shrunk .title
+  top 15px
+
 .shrunk .title li
   font-size 5vw
 

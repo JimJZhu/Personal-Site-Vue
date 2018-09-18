@@ -29,21 +29,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
-h1,h2
-  font-weight: normal
+h1, h2
+  font-weight normal
 
 ul
-  list-style-type: none
-  padding: 0
+  list-style-type none
+  padding 0
 
 li
-  display: inline-block
-  margin: 0 10px
+  display inline-block
+  margin 0 10px
 
 a
-  color: #42b983
+  color #42b983
 
-img
-  border-radius: 50px
+nav
+  height 10vw
 
+.is-dark
+  background-color #2c3e50
 </style>
