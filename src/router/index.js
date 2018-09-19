@@ -17,7 +17,7 @@ const router = new Router({
   routes: [
     {
       path: '*',
-      redirect: '/404',
+      redirect: '/',
     },
     {
       path: '/404',

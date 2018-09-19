@@ -56,6 +56,45 @@
       li.disappear i
       li.disappear n
       li.disappear g
+    ul.countdown(v-bind:style = "{ top: subtitleScrollHeight + 100 + 'px'}")
+      li.disappear D
+      li.disappear a
+      li.disappear y
+      li.disappear s
+      li.disappearSpaced U
+      li.disappear n
+      li.disappear t
+      li.disappear i
+      li.disappear l
+      li.disappearSpaced G
+      li.disappear r
+      li.disappear a
+      li.disappear d
+      li.disappear u
+      li.disappear a
+      li.disappear t
+      li.disappear i
+      li.disappear o
+      li.disappear n:
+      li.disappearSpaced {{daysUntilGraduation}}
+    ul.countdown(v-bind:style = "{ top: subtitleScrollHeight + 140 + 'px'}")
+      li.disappear D
+      li.disappear a
+      li.disappear y
+      li.disappear s
+      li.disappearSpaced U
+      li.disappear n
+      li.disappear t
+      li.disappear i
+      li.disappear l
+      li.disappearSpaced T
+      li.disappear i
+      li.disappear p
+      li.disappear -
+      li.disappear O
+      li.disappear f
+      li.disappear f:
+      li.disappearSpaced {{daysUntilTipOff}}
 </template>
 
 <script>
@@ -64,7 +103,7 @@ export default {
   props: ['scrolled'],
   data() {
     return {
-      subtitleScrollHeight: 90 + window.innerWidth / 10,
+      subtitleScrollHeight: 180 + window.innerWidth / 10,
     };
   },
   methods: {
@@ -73,7 +112,7 @@ export default {
       if (this.scrolled) {
         this.subtitleScrollHeight = 40 + window.innerWidth / 20;
       } else {
-        this.subtitleScrollHeight = 90 + window.innerWidth / 10;
+        this.subtitleScrollHeight = 180 + window.innerWidth / 10;
       }
     },
   },
@@ -83,8 +122,25 @@ export default {
       if (this.scrolled) {
         this.subtitleScrollHeight = 40 + window.innerWidth / 20;
       } else {
-        this.subtitleScrollHeight = 90 + window.innerWidth / 10;
+        this.subtitleScrollHeight = 180 + window.innerWidth / 10;
       }
+    },
+  },
+  computed: {
+    daysUntilGraduation() {
+      let graduationDate = new Date('April 30, 2020');
+      let millisInDay = 1000 * 60 * 60 * 24;
+      return Math.ceil(Math.abs(graduationDate - new Date()) / millisInDay);
+    },
+    daysUntilTipOff() {
+      let graduationDate = new Date('October 16, 2018');
+      let millisInDay = 1000 * 60 * 60 * 24;
+      return Math.ceil(Math.abs(graduationDate - new Date()) / millisInDay);
+    },
+    daysUntilTipOff() {
+      let graduationDate = new Date('October 16, 2018');
+      let millisInDay = 1000 * 60 * 60 * 24;
+      return Math.ceil(Math.abs(graduationDate - new Date()) / millisInDay);
     },
   },
   created() {
@@ -99,21 +155,22 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
 // Title Before Scrolling
-.title
+ul.title
   position fixed
   list-style none
   border-bottom 0
-  transition all 0.3s ease-in-out
-  top 60px
+  transition all 0.2s ease-in-out
+  top 150px
+  left 30px
   z-index 999
 
-.title li
+ul.title li
   float left
   font-weight 700
   font-size 10vw
   color #fff
   opacity 1
-  transition all 0.3s ease-in-out
+  transition all 0.2s ease-in-out
   max-width 2em
 
 li.appear
@@ -124,30 +181,49 @@ li.spaced, li.shrinkSpaced, li.disappearSpaced
   padding-left 0.5em
 
 // Subtitle Before Scrolling
-.subtitle
+ul.subtitle
   position fixed
   list-style none
   border-bottom 0
-  transition all 0.3s ease-in-out
+  transition all 0.2s ease-in-out
+  left 30px
   z-index 999
 
-.subtitle li
+ul.subtitle li
   float left
   font-weight 700
   font-size 3vw
   color #fff
   opacity 1
-  transition all 0.3s ease-in-out
+  transition all 0.2s ease-in-out
+  max-width 2em
+
+// Countdown Before Scrolling
+ul.countdown
+  position fixed
+  list-style none
+  border-bottom 0
+  transition all 0.2s ease-in-out
+  left 30px
+  z-index 999
+
+ul.countdown li
+  float left
+  font-weight 700
+  font-size 3vw
+  color #fff
+  opacity 1
+  transition all 0.2s ease-in-out
   max-width 2em
 
 // Title and Subtitle After scrolling
-.shrunk .title
+.shrunk ul.title
   top 15px
 
-.shrunk .title li
+.shrunk ul.title li
   font-size 5vw
 
-.shrunk .subtitle li
+.shrunk ul.subtitle li
   font-size 2vw
 
 .shrunk li.disappear

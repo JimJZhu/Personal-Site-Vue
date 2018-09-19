@@ -5,12 +5,14 @@ import Buefy from 'buefy';
 import VueFire from 'vuefire';
 import Firebase from 'firebase';
 import 'mdi/css/materialdesignicons.min.css';
+import SmoothScroll from 'vue-smooth-scroll';
 import 'buefy/lib/buefy.css';
 import App from './App';
 import router from './router';
 
 Vue.use(Buefy);
 Vue.use(VueFire);
+Vue.use(SmoothScroll);
 Vue.config.productionTip = false;
 const config = {
   apiKey: process.env.FIREBASE_KEY,

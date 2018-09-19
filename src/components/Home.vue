@@ -1,19 +1,34 @@
 <template lang="pug">
-  div
+  div#home
     section.hero
+      .parallax(v-bind:style = "{ opacity: opacity }")
       .hero-body
         .container
           name-bar(v-bind:scrolled = "initialScroll", v-bind:class = "{ shrunk: initialScroll }")
-          // h1 Experience
-          // h1 Contact Me
-          button.button GO
-    about-section.about(v-bind:class = "{ showAbout: showAbout }")
+            a(target="_blank", href='https://github.com/JimJZhu')
+              i.social.mdi.mdi-github-face.mdi-36px
+            a(target="_blank", href='https://www.linkedin.com/in/jim-zhu-a881b6128')
+              i.social.mdi.mdi-linkedin-box.mdi-36px
+            a(target="_blank", href='http://steamcommunity.com/profiles/76561198044263537')
+              i.social.mdi.mdi-steam.mdi-36px
+            a(href='mailto:jim.jiaming.zhu@gmail.com')
+              i.social.mdi.mdi-envelope.mdi-36px
+          a.arrow(href="#about", v-smooth-scroll="{ duration: 800, offset:-120 }", v-bind:class = "{ clear: initialScroll }")
+            i.arrow.mdi.mdi-arrow-down-drop-circle.mdi-36px
+    about-section#about.about
     work-section
     project-section
+    contact-section
     footer.footer
       .container
+        .content.columns
+          .column
+            h2.subtitle Additional Info
+            a(href='mailto:jim.jiaming.zhu@gmail.com') jim.jiaming.zhu@gmail.com
+            a(href='tel:+16478654188') (647)-865-4188
         .content.has-text-centered
-          p Website by #[strong Jim J.Zhu]
+          p © #[strong JimJZhu]  2018
+
 </template>
 
 <script>
@@ -21,6 +36,8 @@ import ContentBlock from '@/components/home_components/ContentBlock';
 import AboutSection from '@/components/home_components/AboutSection';
 import WorkSection from '@/components/home_components/WorkSection';
 import ProjectSection from '@/components/home_components/ProjectSection';
+import ContactSection from '@/components/home_components/ContactSection';
+
 import NameBar from '@/components/home_components/NameBar';
 
 export default {
@@ -28,34 +45,19 @@ export default {
   data() {
     return {
       initialScroll: false,
-      titleScrollHeight: 10,
-      subtitleScrollHeight: 12,
-      bodyScrollHeight: 1000,
-      showAbout: false,
+      lowerScroll: false,
+      opacity: 1,
     };
   },
   methods: {
     handleScroll() {
-      let slowScroll = 20;
-      let fastScroll = 10;
-      let navbarHeight = 0;
-      let initialTitlePosition = 100;
-      let firstThreshold = 200;
-      let initialBodyPosition = 50;
-      const maxTopPosition = navbarHeight / window.innerWidth / 0.01;
-      this.initialScroll = window.scrollY > initialTitlePosition;
-      const diff = window.scrollY / fastScroll;
+      let initialScrollThreshold = 120;
+      let secondScrollThreshold = 200;
 
-      this.titleScrollHeight =
-        window.scrollY > firstThreshold ? initialTitlePosition - diff : initialTitlePosition;
-      if (this.titleScrollHeight <= maxTopPosition) {
-        this.titleScrollHeight = maxTopPosition;
-      }
-      this.bodyScrollHeight =
-        window.scrollY > initialTitlePosition ? initialBodyPosition - diff : initialBodyPosition;
+      this.initialScroll = window.scrollY > initialScrollThreshold;
+      this.lowerScroll = window.scrollY > secondScrollThreshold;
 
-      this.showAbout = window.scrollY > firstThreshold;
-      console.log(this.titleScrollHeight);
+      this.opacity = 1 - window.scrollY / (window.innerHeight - 200);
     },
   },
   created() {
@@ -69,6 +71,7 @@ export default {
     'about-section': AboutSection,
     'work-section': WorkSection,
     'project-section': ProjectSection,
+    'contact-section': ContactSection,
     'name-bar': NameBar,
   },
 };
@@ -77,17 +80,34 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
 // General Styling
-h1, h2
-  font-weight normal
+a.arrow
+  top 90vh
+  transition all 0.3s ease-in-out
 
-a
-  color #42b983
+i.arrow
+  color white
 
-.hero
-  background-color #2c3e50
+i.social
+  color black
+  margin 10px
+
+.parallax
+  background linear-gradient( 0, rgba( 44, 62, 80, 0.6 ), rgba( 44, 62, 80, 0.6 ) ), url( '../assets/hero.jpeg' )
+  /* Create the parallax scrolling effect */
+  background-attachment fixed
+  background-position center
+  background-repeat no-repeat
+  background-size cover
+  transition all 0.3s ease-in-out
   height 100vh
 
-// About After Scrolling
-.showAbout
-  opacity 1
+.hero
+  height 100vh
+  background-color #2c3e50
+
+.hero-body
+  padding 10px
+
+.clear
+  opacity 0
 </style>

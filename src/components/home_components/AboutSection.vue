@@ -1,17 +1,17 @@
 <template lang="pug">
   section.section
-    .container
+    .container.card
       h1.title About Me
-      .columns
-        .column.is-one-third
-          figure.image.is-1by1
-            img.is-rounded(src="@/assets/bass.jpg")
-        .column
-          p
-            | I am a 3rd year Computer Engineering student at the University of Waterloo interested in Computer Graphics and Computer Vision.
-            | Most of my work experience has been in backend development with either Java, C#, or Javascript 😏, but I'm also adept in mobile iOS development.
-            | My recent focus has been on Augmented Reality using ARKit as a result of my extensive work with it during my internship with IBM iX.
-            | Some of my other interests include fishing, cycling, and rhythm games. 
+      .card-image
+        figure.image
+        img(src="@/assets/bass.jpg")
+      .card-content
+        p.subtitle.column
+          | I am a 3rd year Computer Engineering student at the University of Waterloo interested in Computer Graphics and Computer Vision.
+          | Most of my work experience has been in backend development with either Java, C#, or Javascript 😏, but I'm also adept in mobile iOS development.
+          | <br><br>
+          | My recent focus has been on Augmented Reality using ARKit as a result of my extensive work with it during my internship with IBM iX.
+          | Some of my other interests include fishing, cycling, ping pong, and rhythm games.
 
 </template>
 
@@ -23,13 +23,6 @@ export default {
       msg: 'About Me',
     };
   },
-  computed: {
-    daysUntilGraduation() {
-      let graduationDate = new Date('April 30, 2020');
-      let millisInDay = 1000 * 60 * 60 * 24;
-      return Math.ceil(Math.abs(graduationDate - new Date()) / millisInDay);
-    },
-  },
 };
 </script>
 
@@ -38,11 +31,20 @@ export default {
 h1
   opacity 1
   transition all 0.3s ease-in-out
+  padding-top 10px
 
 p
   list-style none
   border-bottom 0
-  float left
   opacity 1
   transition all 0.3s ease-in-out
+  text-align left
+
+@media ( min-width: 775px )
+  .card
+    width 900px
+
+img
+  width 300px
+  border-radius 50%
 </style>
