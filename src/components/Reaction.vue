@@ -17,6 +17,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
 h1
-  margin-top 70px
+  margin-top 10vw
   color #42b983
 </style>
