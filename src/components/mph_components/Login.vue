@@ -1,6 +1,5 @@
 <template lang="pug">
     section.section
-      br
       h1.title Sign In
       .field
         .control
@@ -46,4 +45,6 @@ export default {
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style lang='stylus' scoped>
+h1, h2
+  margin-top 70px
 </style>

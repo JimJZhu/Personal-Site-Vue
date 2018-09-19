@@ -90,7 +90,6 @@ export default {
   },
   methods: {
     handelResize() {
-      console.log(this.scrolled);
       if (this.scrolled) {
         this.subtitleScrollHeight = 40 + window.innerWidth / 20;
       } else {
@@ -99,8 +98,7 @@ export default {
     },
   },
   watch: {
-    scrolled(newVal, oldVal) {
-      console.log(oldVal + newVal);
+    scrolled() {
       if (this.scrolled) {
         this.subtitleScrollHeight = 40 + window.innerWidth / 20;
       } else {
@@ -110,18 +108,13 @@ export default {
   },
   computed: {
     daysUntilGraduation() {
-      let graduationDate = new Date('April 30, 2020');
-      let millisInDay = 1000 * 60 * 60 * 24;
+      const graduationDate = new Date('April 30, 2020');
+      const millisInDay = 1000 * 60 * 60 * 24;
       return Math.ceil(Math.abs(graduationDate - new Date()) / millisInDay);
     },
     daysUntilTipOff() {
-      let graduationDate = new Date('October 16, 2018');
-      let millisInDay = 1000 * 60 * 60 * 24;
-      return Math.ceil(Math.abs(graduationDate - new Date()) / millisInDay);
-    },
-    daysUntilTipOff() {
-      let graduationDate = new Date('October 16, 2018');
-      let millisInDay = 1000 * 60 * 60 * 24;
+      const graduationDate = new Date('October 16, 2018');
+      const millisInDay = 1000 * 60 * 60 * 24;
       return Math.ceil(Math.abs(graduationDate - new Date()) / millisInDay);
     },
   },

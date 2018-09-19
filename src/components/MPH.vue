@@ -33,7 +33,6 @@ const config = {
 const app = Firebase.initializeApp(config);
 const db = app.database();
 const booksRef = db.ref('products');
-console.log(process.env);
 export default {
   name: 'Development',
   firebase: {

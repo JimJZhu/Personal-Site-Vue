@@ -7,6 +7,7 @@ import HRM from '@/components/hrm_components/HRM';
 import Investorbate from '@/components/Investorbate';
 import Login from '@/components/mph_components/Login';
 import Table from '@/components/mph_components/Table';
+import Reaction from '@/components/Reaction';
 import NotFound from '@/components/global_components/404';
 
 import Firebase from 'firebase';
@@ -43,6 +44,11 @@ const router = new Router({
       path: '/investorbate',
       name: 'Investorbate',
       component: Investorbate,
+    },
+    {
+      path: '/reaction',
+      name: 'Reaction Test',
+      component: Reaction,
     },
     {
       path: '/login',

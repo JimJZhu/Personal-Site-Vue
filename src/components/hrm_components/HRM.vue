@@ -1,6 +1,5 @@
 <template lang="pug">
   section.section
-    br
     h1.title.is-1 HRM Chapter Quiz
     .columns
       .column.is-one-quarter
@@ -127,7 +126,6 @@ export default {
             if (question.answer.a) {
               // Excludes t/f
               questions.push(question);
-              // console.log(question);
             }
           }
           question = {
@@ -200,6 +198,7 @@ export default {
 <style scoped lang='stylus'>
 h1, h2
   font-weight normal
+  margin-top 60px
 
 ul
   list-style-type none

@@ -113,6 +113,7 @@ export default {
 <style scoped lang='stylus'>
 h1, h2
   font-weight normal
+  margin-top 70px
 
 ul
   list-style-type none

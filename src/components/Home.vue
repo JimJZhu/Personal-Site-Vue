@@ -15,9 +15,9 @@
       .container
         .content.columns.is-mobile
           .column
-            a.subtitle(href='mailto:jim.jiaming.zhu@gmail.com')
+            a(href='mailto:jim.jiaming.zhu@gmail.com')
               p Email: jim.jiaming.zhu@gmail.com
-            a.subtitle(href='tel:+16478654188')
+            a(href='tel:+16478654188')
               p Phone: (647)-865-4188
           .column.socials
             a(target="_blank", href='https://github.com/JimJZhu')
@@ -53,8 +53,8 @@ export default {
   },
   methods: {
     handleScroll() {
-      let initialScrollThreshold = 120;
-      let secondScrollThreshold = 200;
+      const initialScrollThreshold = 120;
+      const secondScrollThreshold = 200;
 
       this.initialScroll = window.scrollY > initialScrollThreshold;
       this.lowerScroll = window.scrollY > secondScrollThreshold;
@@ -119,4 +119,5 @@ i.social
 
 a p
   text-align left
+  color black
 </style>

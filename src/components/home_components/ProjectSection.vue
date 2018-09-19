@@ -26,7 +26,7 @@
             a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/Personal-Site')
               article.tile.is-child.box
                 h2.subtitle This Website :)
-                p My personal website built on top of Pure.css using pug and stylus.
+                p My personal website built using Vue.js, Pug, and Stylus.
             a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/QuickGrapherExtension')
               article.tile.is-child.box
                 h2.subtitle Quick Grapher Extension
