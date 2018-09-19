@@ -77,24 +77,6 @@
       li.disappear o
       li.disappear n:
       li.disappearSpaced {{daysUntilGraduation}}
-    ul.countdown(v-bind:style = "{ top: subtitleScrollHeight + 140 + 'px'}")
-      li.disappear D
-      li.disappear a
-      li.disappear y
-      li.disappear s
-      li.disappearSpaced U
-      li.disappear n
-      li.disappear t
-      li.disappear i
-      li.disappear l
-      li.disappearSpaced T
-      li.disappear i
-      li.disappear p
-      li.disappear -
-      li.disappear O
-      li.disappear f
-      li.disappear f:
-      li.disappearSpaced {{daysUntilTipOff}}
 </template>
 
 <script>
@@ -210,7 +192,7 @@ ul.countdown
 ul.countdown li
   float left
   font-weight 700
-  font-size 3vw
+  font-size 4vw
   color #fff
   opacity 1
   transition all 0.2s ease-in-out

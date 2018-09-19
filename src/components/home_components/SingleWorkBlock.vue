@@ -35,5 +35,9 @@ p
   text-align right
 
 .line
-  border-right 8px solid black
+  border none
+
+@media ( min-width: 769px )
+  .line
+    border-right 8px solid black
 </style>

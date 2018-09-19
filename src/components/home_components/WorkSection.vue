@@ -67,6 +67,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
-.line
-  border-right 10px solid black
 </style>

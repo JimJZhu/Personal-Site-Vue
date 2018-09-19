@@ -1,22 +1,19 @@
 <template lang="pug">
   section.section
-    h1.title Contact Me
+    h1.title Contact
     .container
       .tile.is-ancestor
         .tile.is-3
         form.tile.is-vertical.is-6(method='POST', action='http://formspree.io/jim.jiaming.zhu@gmail.com')
           .field
-            label.label Your Email
             .control
-              input.input(type='email', name='email', placeholder='Your email')
+              input.input(type='email', name='email', placeholder='Email')
           .field
-            label.label Your Name
             .control
-              input.input(type='text', name='name', placeholder='Your name')
+              input.input(type='text', name='name', placeholder='Name')
           .field
-            label.label Your Message
             .control
-              textarea.textarea(name='message', placeholder='Your message')
+              textarea.textarea(name='message', placeholder='Message')
           button.button.is-danger(type='submit') Send
 </template>
 

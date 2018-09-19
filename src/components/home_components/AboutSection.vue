@@ -6,7 +6,7 @@
         figure.image
         img(src="@/assets/bass.jpg")
       .card-content
-        p.subtitle.column
+        p
           | I am a 3rd year Computer Engineering student at the University of Waterloo interested in Computer Graphics and Computer Vision.
           | Most of my work experience has been in backend development with either Java, C#, or Javascript 😏, but I'm also adept in mobile iOS development.
           | <br><br>
@@ -39,10 +39,6 @@ p
   opacity 1
   transition all 0.3s ease-in-out
   text-align left
-
-@media ( min-width: 775px )
-  .card
-    width 900px
 
 img
   width 300px

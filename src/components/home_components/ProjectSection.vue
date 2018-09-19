@@ -5,6 +5,15 @@
         h1.title Projects
         .tile.is-ancestor
           .tile.is-vertical.is-4
+            a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/J-OSU')
+              article.tile.is-child.box
+                h2.subtitle J-OSU
+                p A Java port of my favourite rhythm game. Reads standard .osk files.
+            a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/AugRes')
+              article.tile.is-child.box
+                h2.subtitle AugRes
+                p An AR desk reservation system for iOS.
+          .tile.is-vertical.is-4
             a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/HackTheSix')
               article.tile.is-child.box
                 h2.subtitle Investormate
@@ -22,11 +31,7 @@
               article.tile.is-child.box
                 h2.subtitle Quick Grapher Extension
                 p A simple graphing tool for chrome.
-          .tile.is-vertical.is-4
-            a.tile.is-parent.is-vertical.project-card(target="_blank", href='https://github.com/JimJZhu/J-OSU')
-              article.tile.is-child.box
-                h2.subtitle J-OSU
-                p A Java port of my favourite rhythm game. Reads standard .osk files.
+
 </template>
 
 <script>

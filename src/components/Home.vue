@@ -5,14 +5,6 @@
       .hero-body
         .container
           name-bar(v-bind:scrolled = "initialScroll", v-bind:class = "{ shrunk: initialScroll }")
-            a(target="_blank", href='https://github.com/JimJZhu')
-              i.social.mdi.mdi-github-face.mdi-36px
-            a(target="_blank", href='https://www.linkedin.com/in/jim-zhu-a881b6128')
-              i.social.mdi.mdi-linkedin-box.mdi-36px
-            a(target="_blank", href='http://steamcommunity.com/profiles/76561198044263537')
-              i.social.mdi.mdi-steam.mdi-36px
-            a(href='mailto:jim.jiaming.zhu@gmail.com')
-              i.social.mdi.mdi-envelope.mdi-36px
           a.arrow(href="#about", v-smooth-scroll="{ duration: 800, offset:-120 }", v-bind:class = "{ clear: initialScroll }")
             i.arrow.mdi.mdi-arrow-down-drop-circle.mdi-36px
     about-section#about.about
@@ -21,11 +13,21 @@
     contact-section
     footer.footer
       .container
-        .content.columns
+        .content.columns.is-mobile
           .column
-            h2.subtitle Additional Info
-            a(href='mailto:jim.jiaming.zhu@gmail.com') jim.jiaming.zhu@gmail.com
-            a(href='tel:+16478654188') (647)-865-4188
+            a.subtitle(href='mailto:jim.jiaming.zhu@gmail.com')
+              p Email: jim.jiaming.zhu@gmail.com
+            a.subtitle(href='tel:+16478654188')
+              p Phone: (647)-865-4188
+          .column.socials
+            a(target="_blank", href='https://github.com/JimJZhu')
+              i.social.mdi.mdi-github-face.mdi-36px
+            a(target="_blank", href='https://www.linkedin.com/in/jim-zhu-a881b6128')
+              i.social.mdi.mdi-linkedin-box.mdi-36px
+            a(target="_blank", href='http://steamcommunity.com/profiles/76561198044263537')
+              i.social.mdi.mdi-steam.mdi-36px
+            a(href='mailto:jim.jiaming.zhu@gmail.com')
+              i.social.mdi.mdi-envelope.mdi-36px
         .content.has-text-centered
           p © #[strong JimJZhu]  2018
 
@@ -87,9 +89,13 @@ a.arrow
 i.arrow
   color white
 
+.socials
+  text-align right
+
 i.social
   color black
   margin 10px
+  text-align right
 
 .parallax
   background linear-gradient( 0, rgba( 44, 62, 80, 0.6 ), rgba( 44, 62, 80, 0.6 ) ), url( '../assets/hero.jpeg' )
@@ -110,4 +116,7 @@ i.social
 
 .clear
   opacity 0
+
+a p
+  text-align left
 </style>
