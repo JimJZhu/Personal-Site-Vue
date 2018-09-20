@@ -49,7 +49,7 @@ export default {
         {
           date: 'May 2016 - August 2016',
           company: 'MHS',
-          position: 'Software Developer',
+          position: 'Jr. Software Developer',
           points: [
             'Developed the backend for a health assessment’s scoring and report generation using C# and Microsoft SQL Server',
             'Optimized database calls by moving business logic out of SQL code and removing redundant queries, resulting in code that is cleaner, less coupled, and 500% faster',

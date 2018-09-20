@@ -12,7 +12,7 @@
         router-link(to='/login').title MPH Portal Login
     .tile.is-parent
       .tile.is-child.is-4.box
-        router-link(to='/reaction').title Reaction Test
+        p.title Reaction Test
 
 </template>
 
