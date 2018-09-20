@@ -3,7 +3,7 @@
     section.section
       .container
         h1.title Work Experience
-        single-work-block(v-for="workplace in workplaces" v-bind:data="workplace")
+        single-work-block(v-for="workplace in workplaces", v-bind:key="date", v-bind:data="workplace")
 </template>
 
 <script>

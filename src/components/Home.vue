@@ -26,8 +26,6 @@
               i.social.mdi.mdi-linkedin-box.mdi-36px
             a(target="_blank", href='http://steamcommunity.com/profiles/76561198044263537')
               i.social.mdi.mdi-steam.mdi-36px
-            a(href='mailto:jim.jiaming.zhu@gmail.com')
-              i.social.mdi.mdi-envelope.mdi-36px
         .content.has-text-centered
           p © #[strong JimJZhu]  2018
 
