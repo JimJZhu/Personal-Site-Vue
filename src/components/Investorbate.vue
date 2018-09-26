@@ -111,9 +111,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='stylus'>
-h1, h2
-  font-weight normal
-  margin-top 10vw
+h1
+  margin 1rem
 
 ul
   list-style-type none

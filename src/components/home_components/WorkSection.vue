@@ -19,9 +19,9 @@ export default {
           company: 'IBM iX',
           position: 'Software Engineering Intern',
           points: [
-            'Led the IBM iX team in augmented reality development, assisted multiple teams with AR solutions including a major Canadian sporting event, a government agency, and a major energy company',
+            'Led the IBM iX team in augmented reality development; assisted multiple teams with AR solutions including a major Canadian sporting event, a government agency, and a major energy company',
             'Created an extensible framework for ARKit on iOS using multithreading and delegates to maximize performance',
-            'Developed an augmented reality mapping and navigation system for a sporting event’s venue',
+            'Developed an augmented reality mapping and navigation system for a sports venue',
             'Prototyped a Snapchat-style AR face-filter feature using Dlib’s facial landmark detection and ARKit',
           ],
         },

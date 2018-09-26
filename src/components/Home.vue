@@ -1,11 +1,11 @@
 <template lang="pug">
   div#home
     section.hero
-      .parallax(v-bind:style = "{ opacity: opacity }")
+      .parallax
       .hero-body
         .container
           name-bar(v-bind:scrolled = "initialScroll", v-bind:class = "{ shrunk: initialScroll }")
-          a.arrow(href="#about", v-smooth-scroll="{ duration: 800, offset:-120 }", v-bind:class = "{ clear: initialScroll }")
+          a.arrow(href="#about", v-smooth-scroll="{ duration: 800, offset:0 }")
             i.arrow.mdi.mdi-arrow-down-drop-circle.mdi-36px
     about-section#about.about
     work-section
@@ -45,17 +45,21 @@ export default {
   data() {
     return {
       initialScroll: false,
-      lowerScroll: false,
       opacity: 1,
     };
   },
   methods: {
     handleScroll() {
-      const initialScrollThreshold = 120;
-      const secondScrollThreshold = 200;
+      console.log(
+        window.scrollY,
+        window.innerHeight,
+        280 + window.innerWidth / 10,
+      );
+
+      const initialScrollThreshold =
+        window.innerHeight - 410 - window.innerWidth / 10;
 
       this.initialScroll = window.scrollY > initialScrollThreshold;
-      this.lowerScroll = window.scrollY > secondScrollThreshold;
 
       this.opacity = 1 - window.scrollY / (window.innerHeight - 200);
     },
@@ -104,13 +108,16 @@ i.social
   background-size cover
   transition all 0.3s ease-in-out
   height 100vh
+  z-index -10
 
 .hero
   height 100vh
-  background-color #2c3e50
+  z-index -1
 
 .hero-body
   padding 10px
+  background-color #2c3e50
+  z-index 999
 
 .clear
   opacity 0

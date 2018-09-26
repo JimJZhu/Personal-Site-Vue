@@ -43,9 +43,6 @@ li
 a
   color #42b983
 
-nav
-  height 10vw
-
 .is-dark
   background-color #2c3e50
 </style>

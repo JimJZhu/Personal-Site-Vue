@@ -7,7 +7,7 @@
       .field
         .control
           input.input(type='password', placeholder='Password', v-model='password')
-      button.button(v-on:click='login') Connection
+      button.button(v-on:click='login') Login
       br
       p.subtitle {{status}}
 
@@ -35,7 +35,7 @@ export default {
           },
           () => {
             // alert(`nope ${err.message}`);
-            this.status = 'Bad...';
+            this.status = 'Nope...Try again';
           },
         );
     },
@@ -45,6 +45,6 @@ export default {
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style lang='stylus' scoped>
-h1, h2
-  margin-top 10vw
+h1
+  margin 1rem
 </style>

@@ -15,7 +15,7 @@
       li h
       li u
     ul.subtitle(v-bind:style = "{ top: subtitleScrollHeight + 'px'}")
-      li U
+      li.disappear U
       li.disappear n
       li.disappear i
       li.disappear v
@@ -27,7 +27,7 @@
       li.disappear y
       li.disappearSpaced O
       li.disappear f
-      li.shrinkSpaced W
+      li.disappearSpaced W
       li.disappear a
       li.disappear t
       li.disappear e
@@ -35,9 +35,9 @@
       li.disappear l
       li.disappear o
       li.disappear o
-      li.spaced 3
-      li B
-      li.spaced C
+      li.disappearSpaced 3
+      li.disappear B
+      li.disappearSpaced  C
       li.disappear o
       li.disappear m
       li.disappear p
@@ -45,7 +45,7 @@
       li.disappear t
       li.disappear e
       li.disappear r
-      li.shrinkSpaced E
+      li.disappearSpaced E
       li.disappear n
       li.disappear g
       li.disappear i
@@ -91,7 +91,7 @@ export default {
   methods: {
     handelResize() {
       if (this.scrolled) {
-        this.subtitleScrollHeight = 40 + window.innerWidth / 20;
+        this.subtitleScrollHeight = 10 + window.innerWidth / 20;
       } else {
         this.subtitleScrollHeight = 180 + window.innerWidth / 10;
       }
@@ -100,7 +100,7 @@ export default {
   watch: {
     scrolled() {
       if (this.scrolled) {
-        this.subtitleScrollHeight = 40 + window.innerWidth / 20;
+        this.subtitleScrollHeight = 10 + window.innerWidth / 20;
       } else {
         this.subtitleScrollHeight = 180 + window.innerWidth / 10;
       }
@@ -137,7 +137,6 @@ ul.title
   transition all 0.2s ease-in-out
   top 150px
   left 30px
-  z-index 999
 
 ul.title li
   float left
@@ -147,6 +146,7 @@ ul.title li
   opacity 1
   transition all 0.2s ease-in-out
   max-width 2em
+  z-index -999
 
 li.appear
   visibility hidden
@@ -162,7 +162,6 @@ ul.subtitle
   border-bottom 0
   transition all 0.2s ease-in-out
   left 30px
-  z-index 999
 
 ul.subtitle li
   float left
@@ -172,6 +171,7 @@ ul.subtitle li
   opacity 1
   transition all 0.2s ease-in-out
   max-width 2em
+  z-index -999
 
 // Countdown Before Scrolling
 ul.countdown
@@ -180,7 +180,6 @@ ul.countdown
   border-bottom 0
   transition all 0.2s ease-in-out
   left 30px
-  z-index 999
 
 ul.countdown li
   float left
@@ -193,13 +192,10 @@ ul.countdown li
 
 // Title and Subtitle After scrolling
 .shrunk ul.title
-  top 15px
+  top 8px
 
 .shrunk ul.title li
-  font-size 5vw
-
-.shrunk ul.subtitle li
-  font-size 2vw
+  font-size 32px
 
 .shrunk li.disappear
   opacity 0
