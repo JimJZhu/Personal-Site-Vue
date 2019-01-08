@@ -6,7 +6,7 @@ import VueFire from 'vuefire';
 import Firebase from 'firebase';
 import 'mdi/css/materialdesignicons.min.css';
 import SmoothScroll from 'vue-smooth-scroll';
-import 'buefy/lib/buefy.css';
+import 'buefy/dist/buefy.css';
 import App from './App';
 import router from './router';
 
