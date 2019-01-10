@@ -1,14 +1,27 @@
 <template lang="pug">
   nav.navbar.is-dark.is-fixed-top(role='navigation' aria-label="dropdown navigation")
-    .navbar-brand
-      .navbar-burger.burger(v-on:click="toggleBurger" v-bind:class="{'is-active' : visible}")
-        span
-        span
-        span
-    .navbar-menu(v-bind:class="{'is-active' : visible}" v-on:click="toggleBurger")
-      .navbar-end
-        router-link.navbar-item(to='/') Home
-        router-link.navbar-item(to='/dev') Live Projects
+    .container
+      .navbar-brand
+        router-link.navbar-item(to='/' v-on:click.native="scrollToTop")
+          | Jim J Zhu
+        span.navbar-burger.burger(v-on:click="toggleBurger" v-bind:class="{'is-active' : visible}")
+          span
+          span
+          span
+
+      #navMenu.navbar-menu(v-bind:class="{'is-active' : visible}")
+        .navbar-end
+          router-link.navbar-item(to='/dev') Live Projects
+  //- nav.navbar.is-dark.is-fixed-top(role='navigation' aria-label="dropdown navigation")
+  //-   .navbar-brand
+  //-     .navbar-burger.burger(v-on:click="toggleBurger" v-bind:class="{'is-active' : visible}")
+  //-       span
+  //-       span
+  //-       span
+  //-   .navbar-menu(v-bind:class="{'is-active' : visible}" v-on:click="toggleBurger")
+  //-     .navbar-end
+  //-       router-link.navbar-item(to='/') Home
+  //-       router-link.navbar-item(to='/dev') Live Projects
 </template>
 
 <script>
@@ -22,6 +35,9 @@ export default {
   methods: {
     toggleBurger() {
       this.visible = !this.visible;
+    },
+    scrollToTop() {
+      window.scrollTo(0, 0);
     },
   },
 };
@@ -42,6 +58,9 @@ li
 
 a
   color #42b983
+
+.is-dead
+  color #aaa !important
 
 .is-dark
   background-color #2c3e50
