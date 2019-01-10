@@ -1,5 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import Vue from 'vue';
 import Buefy from 'buefy';
 import VueFire from 'vuefire';
@@ -9,6 +10,11 @@ import SmoothScroll from 'vue-smooth-scroll';
 import 'buefy/dist/buefy.css';
 import App from './App';
 import router from './router';
+
+import './assets/icon/favicon-16x16.png';
+import './assets/icon/favicon-32x32.png';
+import './assets/icon/apple-touch-icon.png';
+
 
 Vue.use(Buefy);
 Vue.use(VueFire);

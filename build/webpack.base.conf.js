@@ -79,6 +79,10 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
         },
       },
+      {
+        test: /\s*-icon\.png$/,
+        loader: 'file-loader?name=[name].[ext]'  // <-- retain original file name
+      },
     ],
   },
   node: {
