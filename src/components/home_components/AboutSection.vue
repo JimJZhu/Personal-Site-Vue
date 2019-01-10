@@ -10,10 +10,10 @@
           | I am a 3rd year Computer Engineering student at the University of Waterloo with an
           | interest in Computer Graphics and Computer Vision.
           | Most of my work experience has been in backend development with either Java, C#,
-          | or Javascript 😏, but I'm also adept in mobile iOS development.
+          | or Javascript, but I'm also adept in mobile iOS development.
           | <br><br>
           | As a result of my internship with IBM iX, my recent focus has been Augmented Reality
-          | development using ARKit.
+          | development using ARKit. Currently trying to apply those skills at Splunk.
           | Some of my other interests include fishing, cycling, ping pong, and rhythm games.
 
 </template>

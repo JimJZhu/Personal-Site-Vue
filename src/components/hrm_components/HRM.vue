@@ -20,6 +20,10 @@ import HRMContent from '@/components/hrm_components/HRMContent';
 
 export default {
   name: 'HRM',
+  components: {
+    'hrm-panel': HRMPanel,
+    'hrm-content': HRMContent,
+  },
   data() {
     return {
       chapters: [],
@@ -190,10 +194,7 @@ export default {
       return questions;
     },
   },
-  components: {
-    'hrm-panel': HRMPanel,
-    'hrm-content': HRMContent,
-  },
+
 };
 </script>
 

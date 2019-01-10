@@ -19,10 +19,10 @@
 
 <script>
 export default {
-  name: 'ContentBlock',
+  name: 'ContactSection',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Contact Section',
     };
   },
 };

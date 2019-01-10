@@ -36,10 +36,10 @@
 
 <script>
 export default {
-  name: 'ContentBlock',
+  name: 'ProjectSection',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Project Section',
     };
   },
 };

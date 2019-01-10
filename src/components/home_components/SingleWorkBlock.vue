@@ -10,11 +10,11 @@
 
 <script>
 export default {
-  name: 'ContentBlock',
-  props: ['data'],
+  name: 'SingleWorkBlock',
+  props: { data: { type: Object, required: true } },
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Work Block',
     };
   },
 };

@@ -3,17 +3,28 @@
     section.section
       .container
         h1.title Work Experience
-        single-work-block(v-for="workplace in workplaces", v-bind:key="date", v-bind:data="workplace")
+        single-work-block(v-for="workplace in workplaces", v-bind:key="workplace.date", v-bind:data="workplace")
 </template>
 
 <script>
 import SingleWorkBlock from '@/components/home_components/SingleWorkBlock';
 
 export default {
-  name: 'ContentBlock',
+  name: 'WorkSection',
+  components: {
+    'single-work-block': SingleWorkBlock,
+  },
   data() {
     return {
       workplaces: [
+        {
+          date: 'January 2019 - Present',
+          company: 'Splunk',
+          position: 'Software Engineering Intern',
+          points: [
+            'TBA 🙏',
+          ],
+        },
         {
           date: 'May 2018 - August 2018',
           company: 'IBM iX',
@@ -58,9 +69,6 @@ export default {
         },
       ],
     };
-  },
-  components: {
-    'single-work-block': SingleWorkBlock,
   },
 };
 </script>

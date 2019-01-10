@@ -19,12 +19,17 @@
 <script>
 export default {
   name: 'HRMPanel',
-  props: ['chapters'],
+  props: { chapters: { type: Array, required: true } },
   data() {
     return {
       activeChapter: 0,
       search: '',
     };
+  },
+  watch: {
+    search() {
+      this.$emit('searched', this.search.toLowerCase());
+    },
   },
   methods: {
     onClickButton(chapter) {
@@ -33,11 +38,6 @@ export default {
     },
     isActive(chapter) {
       return this.activeChapter === chapter ? 'is-active' : '';
-    },
-  },
-  watch: {
-    search() {
-      this.$emit('searched', this.search.toLowerCase());
     },
   },
 };
