@@ -1,12 +1,14 @@
 <template lang="pug">
-  div#home
-    section.hero
-      .parallax
+  section
+    br
+    section.section.hero.is-dark
       .hero-body
         .container
-          name-bar(v-bind:scrolled = "initialScroll", v-bind:class = "{ shrunk: initialScroll }")
-          a.arrow(href="#about", v-smooth-scroll="{ duration: 800, offset:0 }")
-            i.arrow.mdi.mdi-arrow-down-drop-circle.mdi-36px
+          h1.title
+            | Jim Jiaming Zhu
+          h2.subtitle
+            | Days until graduation: {{daysUntilGraduation}}
+
     about-section#about.about
     work-section
     project-section
@@ -32,36 +34,31 @@
 </template>
 
 <script>
-import ContentBlock from '@/components/home_components/ContentBlock';
 import AboutSection from '@/components/home_components/AboutSection';
 import WorkSection from '@/components/home_components/WorkSection';
 import ProjectSection from '@/components/home_components/ProjectSection';
 import ContactSection from '@/components/home_components/ContactSection';
 
-import NameBar from '@/components/home_components/NameBar';
 
 export default {
   name: 'Home',
+  components: {
+    'about-section': AboutSection,
+    'work-section': WorkSection,
+    'project-section': ProjectSection,
+    'contact-section': ContactSection,
+  },
   data() {
     return {
       initialScroll: false,
       opacity: 1,
     };
   },
-  methods: {
-    handleScroll() {
-      console.log(
-        window.scrollY,
-        window.innerHeight,
-        280 + window.innerWidth / 10,
-      );
-
-      const initialScrollThreshold =
-        window.innerHeight - 410 - window.innerWidth / 10;
-
-      this.initialScroll = window.scrollY > initialScrollThreshold;
-
-      this.opacity = 1 - window.scrollY / (window.innerHeight - 200);
+  computed: {
+    daysUntilGraduation() {
+      const graduationDate = new Date('April 30, 2020');
+      const millisInDay = 1000 * 60 * 60 * 24;
+      return Math.ceil(Math.abs(graduationDate - new Date()) / millisInDay);
     },
   },
   created() {
@@ -70,13 +67,15 @@ export default {
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
   },
-  components: {
-    'content-block': ContentBlock,
-    'about-section': AboutSection,
-    'work-section': WorkSection,
-    'project-section': ProjectSection,
-    'contact-section': ContactSection,
-    'name-bar': NameBar,
+  methods: {
+    handleScroll() {
+      const initialScrollThreshold =
+        window.innerHeight - 410 - window.innerWidth / 10;
+
+      this.initialScroll = window.scrollY > initialScrollThreshold;
+
+      this.opacity = 1 - window.scrollY / (window.innerHeight - 200);
+    },
   },
 };
 </script>
@@ -84,12 +83,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
 // General Styling
-a.arrow
-  top 90vh
-  transition all 0.3s ease-in-out
-
-i.arrow
-  color white
+.is-dark
+  background-color #2c3e50
 
 .socials
   text-align right
@@ -98,26 +93,6 @@ i.social
   color black
   margin 10px
   text-align right
-
-.parallax
-  background linear-gradient( 0, rgba( 44, 62, 80, 0.6 ), rgba( 44, 62, 80, 0.6 ) ), url( '../assets/hero.jpeg' )
-  /* Create the parallax scrolling effect */
-  background-attachment fixed
-  background-position center
-  background-repeat no-repeat
-  background-size cover
-  transition all 0.3s ease-in-out
-  height 100vh
-  z-index -10
-
-.hero
-  height 100vh
-  z-index -1
-
-.hero-body
-  padding 10px
-  background-color #2c3e50
-  z-index 999
 
 .clear
   opacity 0
