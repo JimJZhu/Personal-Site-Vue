@@ -34,8 +34,8 @@ export default {
       defaultQuestion: [
         {
           question:
-            '  Click on a chapter on the left begin.' +
-            ' Use the search feature to search for keywords in each chapter.',
+            '  Click on a chapter on the left begin.'
+            + ' Use the search feature to search for keywords in each chapter.',
           answer: {
             correct: 'none',
             a: '',

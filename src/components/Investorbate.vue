@@ -62,18 +62,18 @@ export default {
         this.respond('', val.result.speech);
         return;
       }
-      let params = val.result.parameters.params;
+      let { params } = val.result.parameters;
       params = params.split(',');
       let urlExt = '';
       for (let i = 0; i < params.length; i += 1) {
         urlExt += `&${params[i]}=${val.result.parameters[params[i]]}`;
       }
       urlExt = urlExt.substring(1);
-      let location = val.result.parameters.location;
+      let { location } = val.result.parameters;
       location = location.split(',');
       const URL = `https://www.alphavantage.co/query?${urlExt}&apikey=${investApiKey}`;
       axios.get(URL).then((response) => {
-        let data = response.data;
+        let { data } = response;
         for (let i = 0; i < location.length; i += 1) {
           if (location[i][0] === '$') {
             if (val.result.parameters[location[i].substring(1)]) {

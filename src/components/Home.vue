@@ -29,7 +29,7 @@
             a(target="_blank", href='http://steamcommunity.com/profiles/76561198044263537')
               i.social.mdi.mdi-steam.mdi-36px
         .content.has-text-centered
-          p © #[strong JimJZhu]  2018
+          p © #[strong JimJZhu]  2019
 
 </template>
 
@@ -69,8 +69,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      const initialScrollThreshold =
-        window.innerHeight - 410 - window.innerWidth / 10;
+      const initialScrollThreshold = window.innerHeight - 410 - window.innerWidth / 10;
 
       this.initialScroll = window.scrollY > initialScrollThreshold;
 
