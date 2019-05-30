@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import Buefy from 'buefy';
 import 'buefy/dist/buefy.css';
+import 'mdi/css/materialdesignicons.min.css';
 // import VueFire from 'vuefire';
 import Firebase from 'firebase';
 import router from './router';
@@ -26,7 +27,7 @@ Firebase.auth().onAuthStateChanged(() => {
     app = new Vue({
       router,
       store,
-      render: h => h(App),
+      render: (h) => h(App),
     }).$mount('#app');
   }
 });

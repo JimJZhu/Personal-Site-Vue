@@ -1,14 +1,15 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from '@/components/Home';
-import Development from '@/components/Development';
-import HRM from '@/components/hrm_components/HRM';
-import Investorbate from '@/components/Investorbate';
-import Login from '@/components/mph_components/Login';
-import Table from '@/components/mph_components/Table';
-import Reaction from '@/components/Reaction';
-import NotFound from '@/components/global_components/404';
+import Home from '@/views/Home';
+import About from '@/views/About';
+import Development from '@/views/Development';
+import HRM from '@/views/HRM';
+import Investorbate from '@/views/Investorbate';
+import Login from '@/components/mph/Login';
+import Table from '@/components/mph/Table';
+import Reaction from '@/views/Reaction';
+import NotFound from '@/components/global/404';
 
 import Firebase from 'firebase';
 
@@ -29,6 +30,11 @@ const router = new Router({
       path: '/',
       name: 'Home',
       component: Home,
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About,
     },
     {
       path: '/dev',
@@ -68,7 +74,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   const { currentUser } = Firebase.auth();
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   if (requiresAuth && !currentUser) {
     next('/login');
   } else {

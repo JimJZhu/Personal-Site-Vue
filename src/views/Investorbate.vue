@@ -99,10 +99,7 @@ export default {
       if (response === '') {
         this.response = `[Investormate]: ${template}`;
       } else {
-        this.response = `[Investormate]: ${template.replace(
-          '$output',
-          response.replace('"', '').replace('"', '.'),
-        )}\n`;
+        this.response = `[Investormate]: ${template.replace('$output', response.replace('"', '').replace('"', '.'))}\n`;
       }
     },
   },
@@ -110,7 +107,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang='stylus'>
+<style scoped lang="stylus">
 h1
   margin 1rem
 

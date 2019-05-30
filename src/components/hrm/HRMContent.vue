@@ -9,14 +9,11 @@
         .column
           p.digit {{seconds}}
           p.text Seconds
-        .column
-          p.digit {{millis}}
-          p.text Milli
         .column.is-two-fifth
           p.text {{correctCounter}}/{{filteredQuestions.length}}
           p.text Correct
       progress.progress.is-primary.is-small(v-bind:value="correctCounter" v-bind:max="filteredQuestions.length")
-      button.button.is-warning(@click="resetTimer") Reset Timer
+      button.button.is-warning(@click="toggleTimer") {{timerText}}
     button.button.float-right.is-info(v-show="!showTimer" @click="showTimer = true") {{correctCounter}}/{{filteredQuestions.length}} Show Timer
     li.control.tile.is-parent.box.is-vertical(v-for="(question, key) in filteredQuestions")
       h1.subtitle.tile
@@ -53,9 +50,12 @@ export default {
     return {
       responses: [],
       correctCounter: 0,
+      shouldStart: true,
       startTime: Math.trunc(new Date().getTime()),
       now: Math.trunc(new Date().getTime()),
       showTimer: true,
+      timerText: 'Start Timer',
+      timer: null,
     };
   },
   watch: {
@@ -63,11 +63,6 @@ export default {
       this.responses = [];
       this.correctCounter = 0;
     },
-  },
-  created() {
-    window.setInterval(() => {
-      this.now = Math.trunc(new Date().getTime());
-    }, 5);
   },
   methods: {
     isCorrect(index, response, correct) {
@@ -95,11 +90,25 @@ export default {
     resetTimer() {
       this.startTime = Math.trunc(new Date().getTime());
     },
+    toggleTimer() {
+      if (this.shouldStart) {
+        this.timer = window.setInterval(() => {
+          this.now = Math.trunc(new Date().getTime());
+        }, 5);
+        this.shouldStart = false;
+        this.timerText = 'Stop Timer';
+      } else {
+        window.clearInterval(this.timer);
+        this.timerText = 'Start Timer';
+        this.shouldStart = true;
+        this.resetTimer();
+      }
+    },
   },
   computed: {
     filteredQuestions() {
       return this.questions.filter(
-        question =>
+        (question) =>
           question.question.toLowerCase().includes(this.search) ||
           question.answer.a.toLowerCase().includes(this.search) ||
           question.answer.b.toLowerCase().includes(this.search) ||
@@ -119,16 +128,12 @@ export default {
     hours() {
       return Math.trunc((this.now - this.startTime) / 3600000) % 24;
     },
-
-    millis() {
-      return Math.trunc(this.now - this.startTime) % 1000;
-    },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
 h1, h2
   font-weight normal
 
@@ -162,5 +167,4 @@ a
   color red
   font-weight 700
   background-color #ffdbdb
-
 </style>

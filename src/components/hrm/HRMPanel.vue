@@ -3,7 +3,7 @@
     a.panel-heading(v-on:click='onClickButton(0)') HRM Chapters
     .panel-block
       p.control.has-icons-left
-        input.input.is-small(type="text" placeholder="search" v-model="search")
+        input.input.is-small(type="text" v-bind:placeholder="this.searchPlaceholder" v-model="search")
         span.icon.is-small.is-left
           b-icon(icon="magnify" size="is-small")
     a.panel-block(
@@ -24,6 +24,7 @@ export default {
     return {
       activeChapter: 0,
       search: '',
+      searchPlaceholder: 'Search',
     };
   },
   watch: {
@@ -34,6 +35,11 @@ export default {
   methods: {
     onClickButton(chapter) {
       this.activeChapter = chapter;
+      if (this.activeChapter > 0) {
+        this.searchPlaceholder = 'Search Chapter ' + this.activeChapter;
+      } else {
+        this.searchPlaceholder = 'Search ';
+      }
       this.$emit('clicked', chapter);
     },
     isActive(chapter) {
@@ -44,7 +50,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
 h1,h2
   font-weight: normal
 
@@ -58,5 +64,4 @@ li
 
 a
   color: #42b983
-
 </style>

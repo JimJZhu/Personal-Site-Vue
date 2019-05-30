@@ -4,14 +4,15 @@
       .navbar-brand
         router-link.navbar-item(to='/' v-on:click.native="scrollToTop")
           | Jim J Zhu
-        span.navbar-burger.burger(v-on:click="toggleBurger" v-bind:class="{'is-active' : visible}")
-          span
-          span
-          span
+        //- span.navbar-burger.burger(v-on:click="toggleBurger" v-bind:class="{'is-active' : visible}")
+        //-   span
+        //-   span
+        //-   span
 
-      #navMenu.navbar-menu(v-bind:class="{'is-active' : visible}")
-        .navbar-end
-          router-link.navbar-item(to='/dev') Live Projects
+      //- #navMenu.navbar-menu(v-bind:class="{'is-active' : visible}")
+      //-   .navbar-end
+      //-     router-link.navbar-item(to='/about') About
+      //-     router-link.navbar-item(to='/dev') Live Projects
   //- nav.navbar.is-dark.is-fixed-top(role='navigation' aria-label="dropdown navigation")
   //-   .navbar-brand
   //-     .navbar-burger.burger(v-on:click="toggleBurger" v-bind:class="{'is-active' : visible}")

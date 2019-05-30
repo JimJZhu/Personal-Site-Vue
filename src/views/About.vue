@@ -1,5 +1,6 @@
 <template lang="pug">
   section
+    Nav
     br
     section.section.hero.is-dark
       .hero-body
@@ -34,19 +35,20 @@
 </template>
 
 <script>
-import AboutSection from '@/components/home_components/AboutSection';
-import WorkSection from '@/components/home_components/WorkSection';
-import ProjectSection from '@/components/home_components/ProjectSection';
-import ContactSection from '@/components/home_components/ContactSection';
-
+import AboutSection from '@/components/about/AboutSection';
+import WorkSection from '@/components/about/WorkSection';
+import ProjectSection from '@/components/about/ProjectSection';
+import ContactSection from '@/components/about/ContactSection';
+import Nav from '@/components/global/Nav';
 
 export default {
-  name: 'Home',
+  name: 'About',
   components: {
     'about-section': AboutSection,
     'work-section': WorkSection,
     'project-section': ProjectSection,
     'contact-section': ContactSection,
+    Nav,
   },
   data() {
     return {

@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import HRMPanel from '@/components/hrm_components/HRMPanel';
-import HRMContent from '@/components/hrm_components/HRMContent';
+import HRMPanel from '@/components/hrm/HRMPanel';
+import HRMContent from '@/components/hrm/HRMContent';
 
 export default {
   name: 'HRM',
@@ -34,8 +34,8 @@ export default {
       defaultQuestion: [
         {
           question:
-            '  Click on a chapter on the left begin.'
-            + ' Use the search feature to search for keywords in each chapter.',
+            '  Click on a chapter on the left begin.' +
+            ' Use the search feature to search for keywords in each chapter.',
           answer: {
             correct: 'none',
             a: '',
@@ -125,10 +125,7 @@ export default {
         if (token.includes(`${questionNum})`)) {
           if (state !== INITIAL_STATE) {
             // Cleaning the answers
-            question.answer.e = question.answer.e.substr(
-              0,
-              question.answer.e.length - 8,
-            );
+            question.answer.e = question.answer.e.substr(0, question.answer.e.length - 8);
             question.answer.correct = question.answer.correct.substr(0, 1);
             if (question.answer.a) {
               // Excludes t/f
@@ -194,12 +191,11 @@ export default {
       return questions;
     },
   },
-
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang='stylus'>
+<style scoped lang="stylus">
 h1
   margin 1rem
 

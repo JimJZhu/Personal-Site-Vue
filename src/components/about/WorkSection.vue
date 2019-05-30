@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SingleWorkBlock from '@/components/home_components/SingleWorkBlock';
+import SingleWorkBlock from '@/components/about/SingleWorkBlock';
 
 export default {
   name: 'WorkSection',
@@ -21,9 +21,7 @@ export default {
           date: 'January 2019 - Present',
           company: 'Splunk',
           position: 'Software Engineering Intern',
-          points: [
-            'TBA 🙏',
-          ],
+          points: ['TBA 🙏'],
         },
         {
           date: 'May 2018 - August 2018',
@@ -74,5 +72,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="stylus" scoped>
-</style>
+<style lang="stylus" scoped></style>
