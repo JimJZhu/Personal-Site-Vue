@@ -1,28 +1,26 @@
-# Personal Site rewritten using Vue
+# Personal Site
 
-> Personal Site written in Vue
-
-## Build Setup
-
-```bash
-# install dependencies
+## Project setup
+```
 npm install
+```
 
-# serve with hot reload at localhost:8080
-npm run dev
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-# build for production with minification
+### Compiles and minifies for production
+```
 npm run build
+```
 
-# build for production and view the bundle analyzer report
-npm run build --report
+### Run your tests
+```
+npm run test
+```
 
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+### Lints and fixes files
+```
+npm run lint
 ```
