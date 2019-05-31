@@ -17,14 +17,10 @@
               label(for='bookUrl') Url:
               input#bookUrl.form-control(type='text', v-model='newBook.url')
             input.btn.btn-primary(type='submit', value='Add Book')
-      button.button(v-on:click='logout') Logout
 </template>
 
 <script>
-// import Firebase from 'firebase';
-
-// // const app = Firebase.initializeApp(config);
-// const db = Firebase.database();
+// const db = this.$firebase.database();
 // const booksRef = db.ref('site');
 // export default {
 //   name: 'Table',
@@ -46,13 +42,6 @@
 //       this.newBook.title = '';
 //       this.newBook.author = '';
 //       this.newBook.url = 'http://';
-//     },
-//     logout() {
-//       Firebase.auth()
-//         .signOut()
-//         .then(() => {
-//           this.$router.replace('/home');
-//         });
 //     },
 //   },
 // };

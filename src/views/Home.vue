@@ -5,6 +5,8 @@
         .container
           h1.title
             | Jim Jiaming Zhu
+          h1.subtitle
+            | UW ECE 2020
           command-input
     footer-section
 
@@ -23,8 +25,6 @@ export default {
   data() {
     return {};
   },
-  methods: {},
-  computed: {},
 };
 </script>
 

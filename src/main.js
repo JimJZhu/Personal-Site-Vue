@@ -16,12 +16,13 @@ const config = {
   authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
   storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
   messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VUE_APP_FIREBASE_APP_ID,
 };
-console.log(config);
-let app;
 Firebase.initializeApp(config);
-Firebase.auth().onAuthStateChanged(() => {
+Firebase.auth().onAuthStateChanged((user) => {
+  let app;
   if (!app) {
     /* eslint-disable no-new */
     app = new Vue({
@@ -30,4 +31,18 @@ Firebase.auth().onAuthStateChanged(() => {
       render: (h) => h(App),
     }).$mount('#app');
   }
+  router.beforeEach((to, from, next) => {
+    if (!to.meta.protected) {
+      //route is public, don't check for authentication
+      next();
+    } else {
+      //route is protected, if authenticated, proceed. Else, login
+      if (user) {
+        // User is signed in.
+        next();
+      } else {
+        router.push('/notLoggedIn');
+      }
+    }
+  });
 });

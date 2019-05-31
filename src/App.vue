@@ -4,17 +4,16 @@
     link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32-icon.png')
     link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16-icon.png')
     link(rel='manifest', href='/site.webmanifest')
+    Nav
     router-view
 </template>
 
 <script>
-import Nav from '@/components/global_components/Nav';
+import Nav from '@/components/global/Nav';
 
 export default {
   name: 'App',
-  components: {
-    Nav,
-  },
+  components: { Nav },
 };
 </script>
 

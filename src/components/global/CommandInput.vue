@@ -15,6 +15,8 @@
           :open-on-focus="openOnFocus"
           :data="filteredDataObj"
           :loading="loading"
+          :blur="fixError"
+          :focus="fixError"
           size="is-large"
           @change.native="fixError"
           @keyup.enter.native="enterCommand"
@@ -32,6 +34,8 @@
 </template>
 
 <script>
+import Firebase from 'firebase';
+
 export default {
   name: 'CommandInput',
   components: {},
@@ -47,20 +51,25 @@ export default {
         { url: '/reaction', keywords: ['rxn', 'reaction'] },
         { url: '/login', keywords: ['login', 'mph'] },
         { url: '/table', keywords: ['table'] },
+        { url: '/notLoggedIn', keywords: ['status', 'away', 'jim'] },
       ],
       keepFirst: false,
       openOnFocus: false,
       command: '',
       loading: false,
       hasError: false,
-      defaultMessage: 'Enter a command below',
-      message: 'Enter a command below',
+      defaultMessage: 'What would you like to do?',
+      message: 'What would you like to do?',
+      displayName: '',
     };
   },
   methods: {
     fixError() {
       this.hasError = false;
       this.message = this.defaultMessage;
+      if (this.displayName) {
+        this.message = this.displayName + this.message.toLowerCase();
+      }
     },
     applyCommand(command) {
       this.command = command;
@@ -91,6 +100,14 @@ export default {
           break;
       }
     },
+  },
+  mounted() {
+    Firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.displayName = `Hi ${user.displayName}, `;
+        this.fixError();
+      }
+    });
   },
   computed: {
     filteredDataObj() {

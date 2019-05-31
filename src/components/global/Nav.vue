@@ -4,41 +4,25 @@
       .navbar-brand
         router-link.navbar-item(to='/' v-on:click.native="scrollToTop")
           | Jim J Zhu
-        //- span.navbar-burger.burger(v-on:click="toggleBurger" v-bind:class="{'is-active' : visible}")
-        //-   span
-        //-   span
-        //-   span
-
-      //- #navMenu.navbar-menu(v-bind:class="{'is-active' : visible}")
-      //-   .navbar-end
-      //-     router-link.navbar-item(to='/about') About
-      //-     router-link.navbar-item(to='/dev') Live Projects
-  //- nav.navbar.is-dark.is-fixed-top(role='navigation' aria-label="dropdown navigation")
-  //-   .navbar-brand
-  //-     .navbar-burger.burger(v-on:click="toggleBurger" v-bind:class="{'is-active' : visible}")
-  //-       span
-  //-       span
-  //-       span
-  //-   .navbar-menu(v-bind:class="{'is-active' : visible}" v-on:click="toggleBurger")
-  //-     .navbar-end
-  //-       router-link.navbar-item(to='/') Home
-  //-       router-link.navbar-item(to='/dev') Live Projects
+      #navMenu.navbar-menu.is-active
+        .navbar-end
+          router-link.navbar-item(to='/logout' v-show="authenticated") Log Out
 </template>
 
 <script>
 export default {
   name: 'Nav',
   data() {
-    return {
-      visible: false,
-    };
+    return {};
   },
   methods: {
-    toggleBurger() {
-      this.visible = !this.visible;
-    },
     scrollToTop() {
       window.scrollTo(0, 0);
+    },
+  },
+  computed: {
+    authenticated() {
+      return JSON.parse(localStorage.getItem('authenticated'));
     },
   },
 };
@@ -60,9 +44,6 @@ li
 a
   color #42b983
 
-.is-dead
-  color #aaa !important
-
 .is-dark
-  background-color #2c3e50
+  background-color #2c3e50 !important
 </style>

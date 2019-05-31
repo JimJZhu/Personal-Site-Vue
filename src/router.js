@@ -6,16 +6,19 @@ import About from '@/views/About';
 import Development from '@/views/Development';
 import HRM from '@/views/HRM';
 import Investorbate from '@/views/Investorbate';
-import Login from '@/components/mph/Login';
+import Login from '@/components/global/Login';
+import Logout from '@/components/global/Logout';
+import NotLoggedIn from '@/components/global/NotLoggedIn';
+import AlreadyLoggedIn from '@/components/global/AlreadyLoggedIn';
+
 import Table from '@/components/mph/Table';
 import Reaction from '@/views/Reaction';
 import NotFound from '@/components/global/404';
 
-import Firebase from 'firebase';
-
 Vue.use(Router);
 
 const router = new Router({
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '*',
@@ -62,24 +65,29 @@ const router = new Router({
       component: Login,
     },
     {
+      path: '/logout',
+      name: 'Logout',
+      component: Logout,
+    },
+    {
+      path: '/notLoggedIn',
+      name: 'Not Logged In',
+      component: NotLoggedIn,
+    },
+    {
+      path: '/alreadyLoggedIn',
+      name: 'Already Logged In',
+      component: AlreadyLoggedIn,
+    },
+    {
       path: '/table',
       name: 'Table',
       component: Table,
       meta: {
-        requiresAuth: true,
+        protected: true,
       },
     },
   ],
-});
-
-router.beforeEach((to, from, next) => {
-  const { currentUser } = Firebase.auth();
-  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
-  if (requiresAuth && !currentUser) {
-    next('/login');
-  } else {
-    next();
-  }
 });
 
 export default router;
