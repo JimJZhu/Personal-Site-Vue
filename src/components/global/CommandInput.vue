@@ -47,6 +47,7 @@ export default {
         { url: '/about', keywords: ['about'] },
         { url: '/dev', keywords: ['dev', 'projects'] },
         { url: '/hrm', keywords: ['hrm'] },
+        { url: '/envs.html', keywords: ['envs', 'env', 'envs200'] },
         { url: '/investorbate', keywords: ['invest', 'stocks'] },
         { url: '/reaction', keywords: ['rxn', 'reaction'] },
         { url: '/login', keywords: ['login', 'mph'] },
@@ -83,7 +84,13 @@ export default {
         case 'go': {
           let destination = command[1];
           if (destination in this.urlMapping) {
-            this.$router.push(this.urlMapping[destination]);
+            let url = this.urlMapping[destination];
+            // Some hardcode
+            if (url == '/envs.html') {
+              window.location.href = url;
+            } else {
+              this.$router.push(url);
+            }
           } else {
             this.message = 'Invalid destination';
             this.hasError = true;

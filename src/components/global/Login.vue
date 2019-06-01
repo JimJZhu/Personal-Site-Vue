@@ -11,27 +11,23 @@ import 'firebaseui/dist/firebaseui.css';
 
 export default {
   mounted() {
-    Firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.$router.replace('/alreadyLoggedIn');
-      } else {
-        let uiConfig = {
-          signInOptions: [
-            {
-              provider: Firebase.auth.EmailAuthProvider.PROVIDER_ID,
-            },
-          ],
-          callbacks: {
-            signInSuccessWithAuthResult() {
-              localStorage.setItem('authenticated', true);
-              window.location.href = '/';
-            },
+    Firebase.auth().onAuthStateChanged(() => {
+      let uiConfig = {
+        signInOptions: [
+          {
+            provider: Firebase.auth.EmailAuthProvider.PROVIDER_ID,
           },
-        };
-        var ui = Firebaseui.auth.AuthUI.getInstance() || new Firebaseui.auth.AuthUI(Firebase.auth());
-        console.log('mounted');
-        ui.start('#firebaseui-auth-container', uiConfig);
-      }
+        ],
+        callbacks: {
+          signInSuccessWithAuthResult() {
+            localStorage.setItem('authenticated', true);
+            window.location.href = '/';
+          },
+        },
+      };
+      var ui = Firebaseui.auth.AuthUI.getInstance() || new Firebaseui.auth.AuthUI(Firebase.auth());
+      console.log('mounted');
+      ui.start('#firebaseui-auth-container', uiConfig);
     });
   },
 };

@@ -34,6 +34,11 @@ Firebase.auth().onAuthStateChanged((user) => {
   router.beforeEach((to, from, next) => {
     if (!to.meta.protected) {
       //route is public, don't check for authentication
+      if (to.meta.login) {
+        if (localStorage.getItem('authenticated')) {
+          router.replace('/alreadyLoggedIn');
+        }
+      }
       next();
     } else {
       //route is protected, if authenticated, proceed. Else, login
