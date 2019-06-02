@@ -4,9 +4,7 @@
       .navbar-brand
         router-link.navbar-item(to='/' v-on:click.native="scrollToTop")
           | Jim J Zhu
-      #navMenu.navbar-menu.is-active
-        .navbar-end
-          router-link.navbar-item(to='/logout' v-show="authenticated") Log Out
+        router-link.navbar-item(to='/logout' v-show="authenticated") Log Out
 </template>
 
 <script>

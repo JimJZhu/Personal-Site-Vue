@@ -101,6 +101,9 @@ export default {
         case 'mph':
           this.$router.push(`/login`);
           break;
+        case 'status':
+          this.$router.push('/notLoggedIn');
+          break;
         default:
           this.message = 'Invalid command';
           this.hasError = true;

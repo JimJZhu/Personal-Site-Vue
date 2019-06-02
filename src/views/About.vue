@@ -1,14 +1,6 @@
 <template lang="pug">
   section
     br
-    section.section.hero.is-dark
-      .hero-body
-        .container
-          h1.title
-            | Jim Jiaming Zhu
-          h2.subtitle
-            | Days until graduation: {{daysUntilGraduation}}
-
     about-section#about.about
     work-section
     project-section
@@ -52,13 +44,6 @@ export default {
       initialScroll: false,
       opacity: 1,
     };
-  },
-  computed: {
-    daysUntilGraduation() {
-      const graduationDate = new Date('April 30, 2020');
-      const millisInDay = 1000 * 60 * 60 * 24;
-      return Math.ceil(Math.abs(graduationDate - new Date()) / millisInDay);
-    },
   },
   created() {
     window.addEventListener('scroll', this.handleScroll);

@@ -1,5 +1,6 @@
 <template lang="pug">
   footer.footer
+    Contact
     .container
       .content.columns.is-mobile
         .column
@@ -19,9 +20,11 @@
 </template>
 
 <script>
+import Contact from '@/components/about/ContactSection';
+
 export default {
   name: 'Footer',
-  components: {},
+  components: { Contact },
   data() {
     return {};
   },
